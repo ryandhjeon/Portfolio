@@ -1,9 +1,15 @@
 import React from "react"
+import "../styles/styles.scss"
 import Layout from "../templates/Layout"
-import Home from "../templates/Home"
+
+const Blog = () => (
+  <>
+    <h1>Blog</h1>
+  </>
+)
 
 export default () => (
   <Layout>
-    <Home />
+    <Blog />
   </Layout>
 )
