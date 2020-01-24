@@ -11,12 +11,15 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@aws-amplify/cli": "^4.12.0",
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
+    "babel-plugin-remove-graphql-queries": "^2.7.22",
     "gatsby": "^2.19.1",
     "gatsby-cli": "^2.8.27",
     "gatsby-plugin-sass": "^2.1.27",
@@ -26,8 +29,18 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@storybook/addon-actions": "^5.3.8",
+    "@storybook/addon-knobs": "^5.3.8",
+    "@storybook/addon-links": "^5.3.8",
+    "@storybook/addons": "^5.3.8",
+    "@storybook/react": "^5.3.8",
+    "babel-loader": "^8.0.6",
     "babel-plugin-emotion": "^10.0.27",
-    "prettier": "^1.19.1"
+    "babel-preset-react-app": "^9.1.0",
+    "prettier": "^1.19.1",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "typescript": "^3.7.5"
   },
   "repository": {
     "type": "git",
