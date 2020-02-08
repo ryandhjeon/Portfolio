@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import "../styles/styles.scss"
-// import ryanjeonLogo from "../images/ryanjeon-logo.svg";
+import { button, blackButton } from "src/styles/emotionComponent"
 
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
@@ -19,6 +18,7 @@ const Navbar = () => (
         <ListLink to="/services/">Services</ListLink>
       </ul>
     </header>
+    <div css={button}>BUTTON</div>
   </div>
 )
 
