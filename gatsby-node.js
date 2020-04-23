@@ -1,24 +1,46 @@
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      modules: [path.resolve(__dirname, "src"), "node_modules"],
-    },
-  })
+const createPages = require("./create/createPages")
+const createPosts = require("./create/createPosts")
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
+
+exports.createPagesStatefully = async ({ graphql, actions, reporter }, options) => {
+
+  await createPages({ actions, graphql, reporter }, options)
+  await createPosts({ actions, graphql, reporter }, options)
 }
 
-module.exports = ({ config, mode }) => {
-  config.module.rules.push({
-    test: /\.(ts|tsx)$/,
-    use: [
-      {
-        loader: require.resolve("babel-loader"),
-        options: {
-          presets: [["react-app", { flow: false, typescript: true }]],
+exports.createResolvers = async (
+  {
+    actions,
+    cache,
+    createNodeId,
+    createResolvers,
+    store,
+    reporter,
+  },
+) => {
+  const { createNode } = actions
+
+  await createResolvers({
+    WPGraphQL_MediaItem: {
+      imageFile: {
+        type: "File",
+        async resolve(source) {
+          let sourceUrl = source.sourceUrl
+
+          if (source.mediaItemUrl !== undefined) {
+            sourceUrl = source.mediaItemUrl
+          }
+
+          return await createRemoteFileNode({
+            url: encodeURI(sourceUrl),
+            store,
+            cache,
+            createNode,
+            createNodeId,
+            reporter,
+          })
         },
       },
-      require.resolve("react-docgen-typescript-loader"),
-    ],
+    },
   })
-  config.resolve.extensions.push(".ts", ".tsx")
-  return config
 }

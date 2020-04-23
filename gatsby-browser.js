@@ -5,4 +5,6 @@
  */
 
 // You can delete this file if you're not using it
-import "./src/styles/styles.scss"
+
+require("prismjs/themes/prism-tomorrow.css")
+
