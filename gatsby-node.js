@@ -1,46 +1,73 @@
-const createPages = require("./create/createPages")
-const createPosts = require("./create/createPosts")
-const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
+const path = require('path');
+const _ = require('lodash');
 
-exports.createPagesStatefully = async ({ graphql, actions, reporter }, options) => {
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
-  await createPages({ actions, graphql, reporter }, options)
-  await createPosts({ actions, graphql, reporter }, options)
-}
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+  // console.log(node.internal.type)
+  if (node.internal.type === `Mdx`) {
+    const slug = createFilePath({ node, getNode, basePath: `pages/insight` });
+    // console.log(slug);
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    });
+  }
+};
 
-exports.createResolvers = async (
-  {
-    actions,
-    cache,
-    createNodeId,
-    createResolvers,
-    store,
-    reporter,
-  },
-) => {
-  const { createNode } = actions
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const { createPage } = actions;
 
-  await createResolvers({
-    WPGraphQL_MediaItem: {
-      imageFile: {
-        type: "File",
-        async resolve(source) {
-          let sourceUrl = source.sourceUrl
+  const postTemplate = path.resolve('src/templates/post.js');
+  // const tagTemplate = path.resolve('src/templates/tags.js');
 
-          if (source.mediaItemUrl !== undefined) {
-            sourceUrl = source.mediaItemUrl
+  const result = await graphql(`
+    query {
+      postsRemark: allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 2000) {
+        edges {
+          node {
+            frontmatter {
+              title
+              path
+              date(formatString: "MM DD, YYYY")
+              tags
+            }
           }
+        }
+      }
+    }
+  `)
+  // console.log(JSON.stringify(result, null, 4))
+  ;
 
-          return await createRemoteFileNode({
-            url: encodeURI(sourceUrl),
-            store,
-            cache,
-            createNode,
-            createNodeId,
-            reporter,
-          })
-        },
-      },
-    },
-  })
-}
+  // Handle errors
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`);
+    return;
+  }
+  const posts = result.data.postsRemark.edges;
+
+  // Create post detail pages
+  posts.forEach(({ node }) => {
+    createPage({
+      path: node.frontmatter.path,
+      component: postTemplate,
+    });
+  });
+
+  // Extract tag data from query
+  // const tags = result.data.tagsGroup.group;
+  //
+  // // Make tag pages
+  // tags.forEach(tag => {
+  //   createPage({
+  //     path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+  //     component: tagTemplate,
+  //     context: {
+  //       tag: tag.fieldValue,
+  //     },
+  //   });
+  // });
+};

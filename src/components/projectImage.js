@@ -42,7 +42,6 @@ const ProjectImage = (props) => (
 
 export default ProjectImage
 
-
 export const fluidImage = graphql`
   fragment fluidImage on File {
     childImageSharp {

@@ -1,13 +1,12 @@
 /** @jsx jsx */
-import React from "react"
-import { jsx } from 'theme-ui'
-import { Link } from "gatsby"
-import FluidImage from "./fluidImage"
-import { blogURI } from "../../globals"
+import React from 'react';
+import { jsx } from 'theme-ui';
+import { Link } from 'gatsby';
+import FluidImage from './fluidImage';
+import { blogURI } from '../../globals';
 
 const PostEntry = ({ post }) => {
-
-  const { author, uri, title, categories, date, featuredImage, excerpt } = post
+  const { author, uri, title, categories, date, featuredImage, excerpt } = post;
 
   return (
     <Link
@@ -15,17 +14,20 @@ const PostEntry = ({ post }) => {
       sx={{
         mb: '4rem',
         justifyContent: 'center',
-        alignContent: 'center'
-      }}>
-      <FluidImage image={featuredImage}
-      sx={{
-        minHeight: '200px',
-        minWidth: '320px',
-        opacity: '0.8',
-        '&:hover': {
-          opacity: '1',
-        }
-      }}/>
+        alignContent: 'center',
+      }}
+    >
+      <FluidImage
+        image={featuredImage}
+        sx={{
+          minHeight: '200px',
+          minWidth: '320px',
+          opacity: '0.8',
+          '&:hover': {
+            opacity: '1',
+          },
+        }}
+      />
       <div
         dangerouslySetInnerHTML={{ __html: categories.nodes[0].name }}
         sx={{
@@ -42,11 +44,11 @@ const PostEntry = ({ post }) => {
         }}
       />
       <div
-        dangerouslySetInnerHTML={{ __html: excerpt.split('.')[0]}}
+        dangerouslySetInnerHTML={{ __html: excerpt.split('.')[0] }}
         sx={{
           width: '320px',
           fontSize: '14px',
-          color: 'gullGray'
+          color: 'gullGray',
         }}
       />
       <span
@@ -66,7 +68,7 @@ const PostEntry = ({ post }) => {
         }}
       />
     </Link>
-  )
-}
+  );
+};
 
-export default PostEntry
+export default PostEntry;

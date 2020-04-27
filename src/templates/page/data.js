@@ -18,6 +18,6 @@ const PageTemplateFragment = `
             }
         }
     }
-`
+`;
 
-module.exports.PageTemplateFragment = PageTemplateFragment
+module.exports.PageTemplateFragment = PageTemplateFragment;

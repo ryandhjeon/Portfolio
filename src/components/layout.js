@@ -37,7 +37,6 @@ const Layout = ({ props, children }) => {
         <main
           sx={{
             overflowX: 'hidden',
-
             variant: 'layout.main',
           }}>
           {children}

@@ -1,24 +1,26 @@
 /** @jsx jsx */
-import React from "react"
-import { jsx, Card, Text } from "theme-ui"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react';
+import { jsx, Card, Text } from 'theme-ui';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Wrapper from "../components/wrapper"
-import Container from "../components/container"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Container from '../components/container';
 
-const IndexPage = (props) => (
+const IndexPage = props => (
   <Layout
-  sx={{
-    flexDirection: 'column',
-  }}>
+    sx={{
+      flexDirection: 'column',
+    }}
+  >
     <SEO title="Home" />
-    <Container sx={{
+    <Container
+      sx={{
         alignItems: 'center',
         justifyContent: 'space-between',
-      }}>
+      }}
+    >
       <Img
         title="Ryan Jeon Image"
         alt="Greek food laid out on table"
@@ -30,44 +32,60 @@ const IndexPage = (props) => (
           overflow: 'hidden',
         }}
       />
-      <span sx={{
+      <span
+        sx={{
           fontSize: '3rem',
-        }}>
+        }}
+      >
         Focusing on the details
-        <p sx={{
-          fontSize: '1rem',
-          textAlign: 'center',
-        }}>Capturing AI in everyday life</p>
+        <p
+          sx={{
+            fontSize: '1rem',
+            textAlign: 'center',
+          }}
+        >
+          Capturing AI in everyday life
+        </p>
       </span>
     </Container>
-      <Container sx={{
+    <Container
+      sx={{
         bg: 'pampas',
-        color: 'woodSmoke'
-      }}>
-        <span sx={{
+        color: 'woodSmoke',
+      }}
+    >
+      <span
+        sx={{
           fontSize: '3rem',
-        }}>Hey, Hello, Hola</span>
-        <p sx={{
+        }}
+      >
+        Hey, Hello, Hola
+      </span>
+      <p
+        sx={{
           lineHeight: '2rem',
           textAlign: 'justify',
-        }}>
-          I am Ryan Jeon a Ph.D. Candidate in Data Science.
-          This place is for me to ideally gather up the projects and experiments I've done through my life,
-          and jot down my insights in Data Science, Artificial Intelligence, Business, and Strategy Consulting.
-        </p>
-        <button>About Ryan</button>
-      </Container>
+        }}
+      >
+        I am Ryan Jeon a Ph.D. Candidate in Data Science. This place is for me to ideally gather up the projects and
+        experiments I've done through my life, and jot down my insights in Data Science, Artificial Intelligence,
+        Business, and Strategy Consulting.
+      </p>
+      <button>About Ryan</button>
+    </Container>
     <Container
       sx={{
         display: 'flex',
         justifyContent: 'space-between',
         alignContent: 'center',
-      }}>
+      }}
+    >
       <Card
         sx={{
           minWidth: '250px',
           border: '1px solid yellow',
-        }}>
+        }}
+      >
         <Img
           title="Ryan Jeon Image"
           alt="Greek food laid out on table"
@@ -75,8 +93,9 @@ const IndexPage = (props) => (
         />
         <Text
           sx={{
-            textAlign: 'center'
-          }}>
+            textAlign: 'center',
+          }}
+        >
           Insight
         </Text>
       </Card>
@@ -84,7 +103,8 @@ const IndexPage = (props) => (
         sx={{
           minWidth: '250px',
           border: '1px solid yellow',
-        }}>
+        }}
+      >
         <Img
           title="Ryan Jeon Image"
           alt="Greek food laid out on table"
@@ -92,8 +112,9 @@ const IndexPage = (props) => (
         />
         <Text
           sx={{
-            textAlign: 'center'
-          }}>
+            textAlign: 'center',
+          }}
+        >
           Research
         </Text>
       </Card>
@@ -101,7 +122,8 @@ const IndexPage = (props) => (
         sx={{
           minWidth: '250px',
           border: '1px solid yellow',
-        }}>
+        }}
+      >
         <Img
           title="Ryan Jeon Image"
           alt="Greek food laid out on table"
@@ -109,8 +131,9 @@ const IndexPage = (props) => (
         />
         <Text
           sx={{
-            textAlign: 'center'
-          }}>
+            textAlign: 'center',
+          }}
+        >
           Project
         </Text>
       </Card>
@@ -118,42 +141,45 @@ const IndexPage = (props) => (
         sx={{
           minWidth: '250px',
           border: '1px solid yellow',
-        }}>
+        }}
+      >
         <Img
           title="Ryan Jeon Image"
           alt="Greek food laid out on table"
           fluid={props.data.imageOne.childImageSharp.fluid}
         />
         <Text
-        sx={{
-          textAlign: 'center'
-        }}>
+          sx={{
+            textAlign: 'center',
+          }}
+        >
           CV
         </Text>
       </Card>
     </Container>
     <Container
+      sx={{
+        alignItems: 'center',
+        bg: 'pampas',
+        color: 'woodSmoke',
+      }}
+    >
+      <Img
+        title="Ryan Jeon Image"
+        alt="Greek food laid out on table"
+        fluid={props.data.imageTwo.childImageSharp.fluid}
         sx={{
-          alignItems: 'center',
-          bg: 'pampas',
-          color: 'woodSmoke'
-        }}>
-        <Img
-          title="Ryan Jeon Image"
-          alt="Greek food laid out on table"
-          fluid={props.data.imageTwo.childImageSharp.fluid}
-          sx={{
-            justifySelf: 'center',
-            height: '18rem',
-            width: '100%',
-            overflow: 'hidden',
-          }}
-        />
-      </Container>
+          justifySelf: 'center',
+          height: '18rem',
+          width: '100%',
+          overflow: 'hidden',
+        }}
+      />
+    </Container>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
 
 export const fluidImage = graphql`
   fragment fluidImage on File {
@@ -169,7 +195,7 @@ export const pageQuery = graphql`
   query {
     imageOne: file(relativePath: { eq: "image_1.jpg" }) {
       ...fluidImage
-    },
+    }
     imageTwo: file(relativePath: { eq: "image_2.jpg" }) {
       ...fluidImage
     }

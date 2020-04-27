@@ -9,64 +9,47 @@ import MenuItem from "./menuItem"
 
 const NavMenu = () => {
   return (
-    <StaticQuery
-      query={MENU_QUERY}
-      render={(data) => {
-        if (data.wpgraphql.menuItems) {
-          const menuItems = data.wpgraphql.menuItems.nodes
-          const wordPressUrl = data.wpgraphql.generalSettings.url
-
-          return (
-            <ul
-              sx={{
-                display: 'flex',
-                listStyle: 'none',
-                justifyContent: 'space-between',
-                letterSpacing: 2,
-                ml: 'none',
-                mb: '0 !important',
-                '@media screen and (max-width: 40em)': {
-                  display: 'none'
-                },
-              }}>
-              <li
-                sx={{
-                mb: '0 !important',
-              }}>
-                {
-                  menuItems &&
-                  menuItems.map((menuItem) => (
-                    <MenuItem key={menuItem.id} menuItem={menuItem} wordPressUrl={wordPressUrl}/>
-                  ))
-                }
-              </li>
-              <li
-                sx={{
-                  mb: '0 !important',
-                  ml: 3,
-                }}>
-                <Link to={'/project'}>Project</Link>
-              </li>
-              <li
-                sx={{
-                  mb: '0 !important',
-                  ml: 3,
-                }}>
-                <Link to={'/research'}>Research</Link>
-              </li>
-              <li
-                sx={{
-                  mb: '0 !important',
-                  ml: 3,
-                }}>
-                <Link to={'/about'}>About</Link>
-              </li>
-            </ul>
-          )
-        }
-        return null
-      }}
-    />
+    <ul
+      sx={{
+        display: 'flex',
+        listStyle: 'none',
+        justifyContent: 'space-between',
+        letterSpacing: 2,
+        ml: 'none',
+        mb: '0 !important',
+        '@media screen and (max-width: 40em)': {
+          display: 'none'
+        },
+      }}>
+      <li
+        sx={{
+          mb: '0 !important',
+          ml: 3,
+        }}>
+        <Link to={'/insight'}>Insight</Link>
+      </li>
+      <li
+        sx={{
+          mb: '0 !important',
+          ml: 3,
+        }}>
+        <Link to={'/project'}>Project</Link>
+      </li>
+      <li
+        sx={{
+          mb: '0 !important',
+          ml: 3,
+        }}>
+        <Link to={'/research'}>Research</Link>
+      </li>
+      <li
+        sx={{
+          mb: '0 !important',
+          ml: 3,
+        }}>
+        <Link to={'/about'}>About</Link>
+      </li>
+    </ul>
   )
 }
 
@@ -118,27 +101,27 @@ Nav.defaultProps = {
 
 
 export default Nav
-
-const MENU_QUERY = graphql`
-    fragment MenuItem on WPGraphQL_MenuItem {
-        id
-        label
-        url
-        title
-        target
-    }
-    
-    query GETMAINMENU {
-        wpgraphql {
-            menuItems(where: {location: PRIMARY}) {
-                nodes {
-                    ...MenuItem
-                }
-            }
-            generalSettings {
-                url
-            }
-        }
-    }
-`
+//
+// const MENU_QUERY = graphql`
+//     fragment MenuItem on WPGraphQL_MenuItem {
+//         id
+//         label
+//         url
+//         title
+//         target
+//     }
+//
+//     query GETMAINMENU {
+//         wpgraphql {
+//             menuItems(where: {location: PRIMARY}) {
+//                 nodes {
+//                     ...MenuItem
+//                 }
+//             }
+//             generalSettings {
+//                 url
+//             }
+//         }
+//     }
+// `
 

@@ -1,23 +1,23 @@
-import React from "react"
+import React from 'react';
 
-import Layout from "../../components/layout"
-import SEO from "../../components/seo"
-import FluidImage from "../../components/fluidImage"
+import Layout from '../../components/layout';
+import SEO from '../../components/seo';
+import FluidImage from '../../components/fluidImage';
 
 const Page = ({ pageContext }) => {
   const {
     page: { title, content, featuredImage },
-  } = pageContext
+  } = pageContext;
 
   return (
     <Layout>
-      <SEO title={title}/>
+      <SEO title={title} />
 
-      <FluidImage image={featuredImage} sx={{ mb: "15px" }}/>
+      <FluidImage image={featuredImage} sx={{ mb: '15px' }} />
 
-      <div dangerouslySetInnerHTML={{ __html: content }}/>
+      <div dangerouslySetInnerHTML={{ __html: content }} />
     </Layout>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;
