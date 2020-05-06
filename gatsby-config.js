@@ -1,18 +1,37 @@
-module.exports = {
-  siteMetadata: {
-    title: `Maison De Ryan`,
+const siteMetadata = {
+  title: `Maison De Ryan`,
     description: `Ryan's daily note`,
     author: `Ryan Jeon`,
-  },
+    image: ``,
+    siteUrl: `https://www.ryanjeon.com`,
+    siteLanguage: `en-US`,
+    siteLocale: `en_us`,
+    twitter: `ryandhjeon`,
+    linkedIn: `ryandhjeon`,
+    github : `ryandhjeon`,
+}
+
+module.exports = {
+  siteMetadata: siteMetadata,
   plugins: [
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-feed-mdx`,
     `gatsby-plugin-theme-ui`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+        ],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -26,7 +45,6 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
@@ -47,8 +65,6 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
@@ -68,8 +84,15 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'insight',
-        path: `${__dirname}/src/pages/insight`
-      }
+        path: `${__dirname}/src/posts`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'project',
+        path: `${__dirname}/src/projects`,
+      },
     },
   ],
 };

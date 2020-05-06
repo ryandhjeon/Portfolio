@@ -1,14 +1,11 @@
 const path = require('path');
 const _ = require('lodash');
-
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
-  // console.log(node.internal.type)
   if (node.internal.type === `Mdx`) {
     const slug = createFilePath({ node, getNode, basePath: `pages/insight` });
-    // console.log(slug);
     createNodeField({
       node,
       name: `slug`,
@@ -20,14 +17,26 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
 
-  const postTemplate = path.resolve('src/templates/post.js');
-  // const tagTemplate = path.resolve('src/templates/tags.js');
+  const postTemplate = path.resolve('src/templates/postTemplate.jsx');
+  const tagTemplate = path.resolve('src/templates/tagsTemplate.jsx');
 
   const result = await graphql(`
     query {
-      postsRemark: allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 2000) {
+      tagsGroup: allMdx(limit: 2000) {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
+      postsRemark: allMdx(
+        sort: { order: DESC, fields: [frontmatter___date] }
+      ) {
+        totalCount
         edges {
           node {
+            id
+            fields {
+              slug
+            }
             frontmatter {
               title
               path
@@ -35,39 +44,57 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               tags
             }
           }
+          next {
+            frontmatter {
+              path
+              title
+              category
+              description
+            }
+          }
+          previous {
+            frontmatter {
+              path
+              title
+              category
+              description
+            }
+          }
         }
       }
     }
-  `)
-  // console.log(JSON.stringify(result, null, 4))
-  ;
+  `);
 
-  // Handle errors
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
     return;
   }
+
   const posts = result.data.postsRemark.edges;
 
-  // Create post detail pages
-  posts.forEach(({ node }) => {
+  posts.forEach(({ node, next, previous }, index) => {
     createPage({
       path: node.frontmatter.path,
       component: postTemplate,
+      context: {
+        slug: node.fields.slug,
+        next,
+        previous,
+      },
     });
   });
 
-  // Extract tag data from query
-  // const tags = result.data.tagsGroup.group;
-  //
-  // // Make tag pages
-  // tags.forEach(tag => {
-  //   createPage({
-  //     path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
-  //     component: tagTemplate,
-  //     context: {
-  //       tag: tag.fieldValue,
-  //     },
-  //   });
-  // });
+  const tags = result.data.tagsGroup.group;
+
+  tags.forEach(tag => {
+    createPage({
+      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+      component: tagTemplate,
+      context: {
+        tag: tag.fieldValue,
+      },
+    });
+  });
 };
+
+// filter: { frontmatter: { published: { eq: true } } }
