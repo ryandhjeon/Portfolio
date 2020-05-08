@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { useSiteMetadata } from '../utils/useSiteMetadata';
 
 function Seo({ description, lang, meta, title }) {

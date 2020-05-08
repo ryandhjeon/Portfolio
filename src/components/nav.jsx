@@ -76,7 +76,7 @@ const NavMenu = () => {
           ml: 3,
         }}
       >
-        <Link to={'/projects'}>Project</Link>
+        <Link to={'/project'}>Project</Link>
       </li>
       <li
         sx={{
