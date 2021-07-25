@@ -109,7 +109,7 @@ const IndexPage = () => {
                 fontSize: '2rem',
               }}
             >
-              en·tre·pre·neur
+              en·tre·pre·neurs
             </span>
             <p sx={{ textAlign: 'justify' }}>
               Problem Solving, Analytical Thinking, Business Leadership. These are the key words that describes me the
