@@ -1,11 +1,4 @@
 export default {
-  breakpoints: [ '40em', '56em', '64em' ],
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  fontWeights: {
-    heading: 100,
-    body: 200,
-    bold: 700,
-  },
   colors: {
     gullGray: '#92A3AB',
     primaryText: 'rgba(255, 255, 255, 0.8)',
@@ -23,28 +16,51 @@ export default {
     facebook: '#4267B2',
     bgsuOrange: '#FF7300',
     bgsuBrown: '#4f2c1d',
+    navBackground: 'rgba(25, 27, 31, 0.9)',
+  },
+  breakpoints: [ '40em', '56em', '64em' ],
+  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+  fontWeights: {
+    xs: 100,
+    sm: 200,
+    md: 400,
+    lg: 700,
+    bold: 700,
+  },
+  styles: {
+    root: {
+
+    }
   },
   layout: {
-    nav: {
-      fontSize: '12px',
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh',
+    header: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      backgroundColor: 'navBackground',
+      alignItems: 'center',
+      maxWidth: '1040px',
+      mx: 'auto',
+      p: '13px 20px',
+      fontSize: '0',
       textTransform: 'uppercase',
-      fontWeight: 100,
-      py: 3,
+      fontWeight: 'xs',
       'a': {
         color: 'pampas',
-      },
-      'a:hover': {
-        color: 'schoolBus',
-        transition: 'all 500ms',
-        textDecoration: 'none',
-      },
-      '@media screen and (max-width: 64em)': {
-        px: 3,
+        '&:hover': {
+          color: 'schoolBus',
+          textDecoration: 'none',
+          transition: '500ms',
+        },
       },
     },
     main: {
       flex: 1,
       color: 'pampas',
+      // overflowX: 'hidden',
       'a': {
         color: 'primaryText',
       },

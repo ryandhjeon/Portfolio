@@ -1,54 +1,11 @@
 /** @jsx jsx */
-import React from 'react';
+import React, { Component, useState }  from 'react';
 import { jsx, MenuButton } from 'theme-ui';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import Headroom from 'react-headroom';
 
-const Nav = ({ siteTitle }) => (
-  <Headroom>
-    <header
-      sx={{
-        variant: 'layout.nav',
-      }}
-    >
-      <div
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          maxWidth: '1040px',
-          mx: 'auto',
-        }}
-      >
-        <Link
-          to="/"
-          sx={{
-            fontWeight: 400,
-            fontSize: '14px',
-            '&:hover': {
-              color: 'white !important',
-            },
-          }}
-        >
-          {siteTitle}
-        </Link>
-        <NavMenu />
-        <MenuButton
-          sx={{
-            display: 'none',
-            '@media screen and (max-width: 40em)': {
-              display: 'flex',
-              color: 'white',
-            },
-          }}
-        />
-      </div>
-    </header>
-  </Headroom>
-);
-
-const NavMenu = () => {
+const MenuLinks = () => {
   return (
     <ul
       sx={{
@@ -58,7 +15,7 @@ const NavMenu = () => {
         letterSpacing: 2,
         ml: 'none',
         mb: '0 !important',
-        '@media screen and (max-width: 40em)': {
+        '@media screen and (max-width: 40.01em)': {
           display: 'none',
         },
       }}
@@ -68,7 +25,7 @@ const NavMenu = () => {
           mb: '0 !important',
         }}
       >
-        <Link to={'/insight'}>Insight</Link>
+        <Link to={'/'}>About</Link>
       </li>
       <li
         sx={{
@@ -76,7 +33,7 @@ const NavMenu = () => {
           ml: 3,
         }}
       >
-        <Link to={'/project'}>Project</Link>
+        <Link to={'/insight'}>Insights</Link>
       </li>
       <li
         sx={{
@@ -84,26 +41,132 @@ const NavMenu = () => {
           ml: 3,
         }}
       >
-        <Link to={'/publication'}>Publication</Link>
-      </li>
-      <li
-        sx={{
-          mb: '0 !important',
-          ml: 3,
-        }}
-      >
-        <Link to={'/about'}>About</Link>
+        <Link to={'/project'}>Projects</Link>
       </li>
     </ul>
   );
 };
 
-Nav.propTypes = {
-  siteTitle: PropTypes.string,
-};
+const Nav = ({ siteTitle }) => {
+  const [nav, showNav] = useState(false);
 
-Nav.defaultProps = {
-  siteTitle: ``,
-};
+  return (
+    <Headroom>
+      <header sx={{ variant: 'layout.header' }}>
+        <Link
+          to="/"
+          sx={{
+            fontWeight: 'md',
+            fontSize: '1',
+          }}
+        >
+          {siteTitle}
+        </Link>
+        <MenuLinks />
+        {/*<MenuIcon*/}
+        {/*  nav={nav}*/}
+        {/*  onClick={() => showNav(!nav)}>*/}
+        {/*  <div />*/}
+        {/*  <div />*/}
+        {/*  <div />*/}
+        {/*</MenuIcon>*/}
+        <button
+          nav={nav}
+          onClick={() => showNav(!nav)}
+          sx={{
+            display: ['flex'],
+            flexDirection: 'column',
+            justifyContent: 'space-around',
+            p: 0,
+            height: '1rem',
+            background: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            zIndex: 5,
+            '@media screen and (min-width: 40em)': {
+              display: 'none',
+            },
+            'div': {
+              width: '1.2rem',
+              height: '.05rem',
+              background: 'white',
+              borderRadius: '5px',
+              transformOrigin: '1px',
+              // position: 'relative',
+              transition: 'transform 300ms, opacity 300ms',
+              ':first-of-type': {
+                transform: $nav => nav ? "rotate(45deg)" : "rotate(0deg) + console.log('TEST')"
+              },
+              ':nth-of-type(2)': {
+                opacity: $nav => nav ? "0" : "1"
+              },
+              ':nth-of-type(3)': {
+                transform: $nav => nav ? "rotate(-45deg)" : "rotate(0)"
+              }
+            }
+          }}
+        >
+          <div />
+          <div />
+          <div />
+        </button>
+      </header>
+      <nav
+        nav={nav}
+        sx={{
+          bg: 'background',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          textAlign: 'center',
+          height: '100vh',
+          width: '100%',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          transition: 'transform 300ms',
+          transform: $nav => nav ? "translateY(0)" : "translateY(-100%)"
+        }}
+      >
+        <ul sx={{
+          listStyleType: 'none',
+          ml: 0,
+          'li': {
+            mt: '1rem',
+          },
+          'a': {
+            textDecoration: 'none',
+            color: 'pampas',
+            fontFamily: 'Raleway',
+            fontSize: '5',
+            fontWeight: 'sm',
+            transition: 'color 300ms',
+            ':hover': {
+              color: 'schoolBus'
+            }
+          }
+        }}
+        >
+          <li><Link to={'/'} nav={nav} onClick={() => showNav(!nav)}>Home</Link></li>
+          <li><Link to={'/project'} nav={nav} onClick={() => showNav(!nav)}>Projects</Link></li>
+          <li><Link to={'/insight'} nav={nav} onClick={() => showNav(!nav)}>Insights</Link></li>
+          <li><a href="https://www.github.com/ryandhjeon" target="_blank" nav={nav} onClick={() => showNav(!nav)}>Github</a></li>
+          <li><a href="https://www.linkedin.com/in/ryandhjeon" target="_blank" nav={nav} onClick={() => showNav(!nav)}>LinkedIn</a></li>
+          <li><a href="mailto:ryandhjeon@gmail.com" nav={nav} onClick={() => showNav(!nav)}>Email</a></li>
+        </ul>
+      </nav>
+    </Headroom>
+  );
+}
+
+//
+// Nav.propTypes = {
+//   siteTitle: PropTypes.string,
+// };
+//
+// Nav.defaultProps = {
+//   siteTitle: ``,
+// };
 
 export default Nav;
