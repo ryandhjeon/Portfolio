@@ -70,12 +70,15 @@ export default function Template({ data, pageContext }) {
         </div>
         {!!post.frontmatter.cover ? (
           <Img
-            sizes={post.frontmatter.cover.childImageSharp.sizes}
+            sizes={post.frontmatter.cover.childImageSharp.fluid}
             sx={{
               width: '1040px',
               height: '20rem',
               mb: 5,
               mx: 'auto',
+              '@media screen and (max-width: 56em)': {
+                maxWidth: '100%',
+              },
             }}
           />
         ) : null}
@@ -83,6 +86,9 @@ export default function Template({ data, pageContext }) {
           sx={{
             width: '40em',
             mx: 'auto',
+            '@media screen and (max-width: 56em)': {
+              maxWidth: '100%',
+            },
           }}
         >
           <div
@@ -108,6 +114,7 @@ export default function Template({ data, pageContext }) {
               display: 'flex',
               justifyContent: 'space-between',
               mt: 6,
+
             }}
           >
             {post.frontmatter.tags ? (
@@ -157,15 +164,16 @@ export default function Template({ data, pageContext }) {
           <div
             sx={{
               display: 'grid',
-              width: '1040px',
+              // width: '1040px',
               mx: 'auto',
               py: 5,
               gridGap: 1,
-              '@media screen and (min-width: 40em)': {
+              '@media screen and (max-width: 40em)': {
+                width: '100%',
                 gridTemplateColumns: `repeat(1, 1fr)`,
               },
-              '@media screen and (min-width: 64em)': {
-                gridTemplateColumns: `repeat(3, 1fr)`,
+              '@media screen and (min-width: 40em)': {
+                gridTemplateColumns: `repeat(2, 1fr)`,
               },
             }}
           >
@@ -188,14 +196,13 @@ export default function Template({ data, pageContext }) {
                     <span
                       sx={{
                         position: 'absolute',
-                        left: 0,
+                        left: 50,
                         opacity: '0.8',
                         color: 'schoolBus',
                         visibility: 'hidden',
                       }}
                     >
-                      {' '}
-                      ◅{' '}
+                      ◅
                     </span>
                     <div
                       sx={{
@@ -234,31 +241,31 @@ export default function Template({ data, pageContext }) {
                 )}
               </>
             )}
-            <div>
-              <Link to={'/insight'} sx={{ textAlign: 'center' }}>
-                <div
-                  sx={{
-                    textAlign: 'center',
-                    '&:hover': {
-                      transition: 'all 0.5s',
-                      transform: 'translate(0px, 3px)',
-                    },
-                  }}
-                >
-                  <span>More readings</span>
-                  <div
-                    sx={{
-                      fontSize: '12px',
-                      color: 'gullGray',
-                      opacity: '0.8',
-                      textTransform: 'uppercase',
-                    }}
-                  >
-                    {description}
-                  </div>
-                </div>
-              </Link>
-            </div>
+            {/*<div>*/}
+            {/*  <Link to={'/insight'} sx={{ textAlign: 'center' }}>*/}
+            {/*    <div*/}
+            {/*      sx={{*/}
+            {/*        textAlign: 'center',*/}
+            {/*        '&:hover': {*/}
+            {/*          transition: 'all 0.5s',*/}
+            {/*          transform: 'translate(0px, 3px)',*/}
+            {/*        },*/}
+            {/*      }}*/}
+            {/*    >*/}
+            {/*      <span>More readings</span>*/}
+            {/*      <div*/}
+            {/*        sx={{*/}
+            {/*          fontSize: '12px',*/}
+            {/*          color: 'gullGray',*/}
+            {/*          opacity: '0.8',*/}
+            {/*          textTransform: 'uppercase',*/}
+            {/*        }}*/}
+            {/*      >*/}
+            {/*        {description}*/}
+            {/*      </div>*/}
+            {/*    </div>*/}
+            {/*  </Link>*/}
+            {/*</div>*/}
             {next === false ? null : (
               <>
                 {next && (
@@ -318,24 +325,24 @@ export default function Template({ data, pageContext }) {
 
 export const postQuery = graphql`
   query BlogPostByPath($path: String!) {
-    mdx(frontmatter: { path: { eq: $path } }) {
-      body
-      timeToRead
-      frontmatter {
-        title
-        path
-        category
-        description
-        date(formatString: "MMMM Do, YYYY")
-        tags
-        cover {
-          childImageSharp {
-            sizes(maxWidth: 2000, traceSVG: { color: "#FEDD00" }) {
-              ...GatsbyImageSharpSizes_tracedSVG
-            }
+      mdx(frontmatter: { path: { eq: $path } }) {
+          body
+          timeToRead
+          frontmatter {
+              title
+              path
+              category
+              description
+              date(formatString: "MMMM Do, YYYY")
+              tags
+              cover {
+                  childImageSharp {
+                      fluid(maxWidth: 2000) {
+                          ...GatsbyImageSharpFluid_tracedSVG
+                      }
+                  }
+              }
           }
-        }
       }
-    }
   }
 `;

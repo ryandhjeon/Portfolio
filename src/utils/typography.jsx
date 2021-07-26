@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
 import Typography from "typography"
 import CodePlugin from "typography-plugin-code"
 import github from "typography-theme-github"

@@ -85,7 +85,7 @@ const PostCard = () => {
               >
                 {!!post.frontmatter.cover ? (
                   <Img
-                    sizes={post.frontmatter.cover.childImageSharp.sizes}
+                    sizes={post.frontmatter.cover.childImageSharp.fluid}
                     sx={{
                       width: '100%',
                       height: '14rem',

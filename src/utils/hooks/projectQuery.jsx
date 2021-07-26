@@ -19,8 +19,8 @@ const useProjectQuery = () => {
               path
               cover {
                 childImageSharp {
-                  sizes(maxWidth: 2000, traceSVG: { color: "pampas" }) {
-                    ...GatsbyImageSharpSizes_tracedSVG
+                  fluid(maxWidth: 2000) {
+                      ...GatsbyImageSharpFluid_tracedSVG
                   }
                 }
               }
