@@ -91,9 +91,5 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
-  "engineStrict": true,
-  "engines": {
-    "node": ">=14.0.0"
   }
 }
