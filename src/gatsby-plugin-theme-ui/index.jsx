@@ -40,16 +40,17 @@ export default {
     header: {
       display: 'flex',
       justifyContent: 'space-between',
-      backgroundColor: 'navBackground',
       alignItems: 'center',
       maxWidth: '1040px',
+      maxHeight: '50px',
       mx: 'auto',
       p: '13px 20px',
-      fontSize: '0',
       textTransform: 'uppercase',
-      fontWeight: 'xs',
+      fontSize: '1',
+      fontWeight: 'sm',
       'a': {
         color: 'pampas',
+        textDecoration: 'none',
         '&:hover': {
           color: 'schoolBus',
           textDecoration: 'none',
@@ -76,11 +77,11 @@ export default {
       color: 'gullGray',
       bg: 'woodSmoke',
       'a': {
+        textDecoration: 'none',
         color: 'gullGray',
       },
       'a:hover': {
         color: 'schoolBus',
-        textDecoration: 'none',
       },
       '@media screen and (max-width: 64em)': {
         px: '7%',

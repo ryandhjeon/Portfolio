@@ -2,17 +2,15 @@
 import React from 'react';
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
-import Nav from './nav';
+import { Navbar } from './navbar';
 import Footer from './footer';
-import { Testerer } from './test';
 import { useSiteMetadata } from '../utils/useSiteMetadata';
 
 const Layout = ({ children }) => {
   const { title } = useSiteMetadata();
   return (
     <div sx={{ variant: 'layout' }}>
-      <Nav siteTitle={title} />
-      {/*<Testerer />*/}
+      <Navbar siteTitle={title} />
       <main sx={{ variant: 'layout.main' }}>
         {children}
       </main>

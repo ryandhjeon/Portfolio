@@ -3,8 +3,8 @@ import React from 'react';
 import { jsx } from 'theme-ui';
 import { graphql } from 'gatsby';
 import useImageQuery from '../utils/hooks/imageQuery';
-import { GatsbyImage } from "gatsby-plugin-image"
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image"
 
 import SEO from '../components/seo';
 import Layout from '../components/layout';
@@ -14,7 +14,7 @@ import { useSiteMetadata } from '../utils/useSiteMetadata';
 const IndexPage = () => {
   const { description, title, image, siteUrl, siteLanguage, siteLocale, twitter } = useSiteMetadata();
 
-  const { portfolio_about, portfolio_drawing, rj } = useImageQuery();
+  const { portfolio_about } = useImageQuery();
 
   return (
     <Layout
@@ -91,7 +91,9 @@ const IndexPage = () => {
               },
             }}
           >
-            <GatsbyImage title="Ryan Jeon Image" image={portfolio_about.childImageSharp.fluid} />
+            <StaticImage
+              src='../images/portfolio_about.jpg'
+              alt='Ryan Jeon' />
           </div>
           <div
             sx={{
@@ -110,7 +112,7 @@ const IndexPage = () => {
                 fontSize: '2rem',
               }}
             >
-              en·tre·pre·neurs
+              en·tre·pre·neur
             </span>
             <p sx={{ textAlign: 'justify' }}>
               Problem Solving, Analytical Thinking, Business Leadership. These are the key words that describes me the
