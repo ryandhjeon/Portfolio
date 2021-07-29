@@ -3,13 +3,12 @@ import React from 'react';
 import { jsx, Image } from 'theme-ui';
 import { Link, graphql } from 'gatsby';
 import SEO from 'react-seo-component';
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 import { useSiteMetadata } from '../utils/useSiteMetadata';
 import usePostsQuery from '../utils/hooks/postQuery';
-
-import Img from 'gatsby-image';
 
 const Insight = () => {
   const { description, title, image, siteUrl, siteLanguage, siteLocale, twitter } = useSiteMetadata();
@@ -83,21 +82,21 @@ const PostCard = () => {
                   textAlign: 'center',
                 }}
               >
-                {!!post.frontmatter.cover ? (
-                  <Img
-                    sizes={post.frontmatter.cover.childImageSharp.fluid}
-                    sx={{
-                      width: '100%',
-                      height: '14rem',
-                      mb: 3,
-                      opacity: '0.7',
-                      '&:hover': {
-                        opacity: '1',
-                        transition: 'all 300ms',
-                      },
-                    }}
-                  />
-                ) : null}
+                {/*{!!post.frontmatter.cover ? (*/}
+                {/*  <GatsbyImage*/}
+                {/*    sizes={post.frontmatter.cover.childImageSharp.fluid}*/}
+                {/*    sx={{*/}
+                {/*      width: '100%',*/}
+                {/*      height: '14rem',*/}
+                {/*      mb: 3,*/}
+                {/*      opacity: '0.7',*/}
+                {/*      '&:hover': {*/}
+                {/*        opacity: '1',*/}
+                {/*        transition: 'all 300ms',*/}
+                {/*      },*/}
+                {/*    }}*/}
+                {/*  />*/}
+                {/*) : null}*/}
                 <div
                   sx={{
                     fontSize: '12px',

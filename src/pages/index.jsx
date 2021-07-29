@@ -2,8 +2,9 @@
 import React from 'react';
 import { jsx } from 'theme-ui';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image'
 import useImageQuery from '../utils/hooks/imageQuery';
+import { GatsbyImage } from "gatsby-plugin-image"
+
 
 import SEO from '../components/seo';
 import Layout from '../components/layout';
@@ -90,7 +91,7 @@ const IndexPage = () => {
               },
             }}
           >
-            <Img title="Ryan Jeon Image" fluid={portfolio_about.childImageSharp.fluid} />
+            <GatsbyImage title="Ryan Jeon Image" image={portfolio_about.childImageSharp.fluid} />
           </div>
           <div
             sx={{

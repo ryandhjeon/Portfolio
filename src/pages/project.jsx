@@ -2,7 +2,7 @@
 import React from 'react';
 import { jsx } from 'theme-ui';
 import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -83,17 +83,17 @@ const ProjectPage = () => {
               Description
             </p>
           </div>
-          <Img
-            fluid={imageOne.childImageSharp.fluid}
-            sx={{
-              width: '100%',
-              height: 'auto',
-              transition: '.3s ease',
-              '&:hover': {
-                opacity: '0.3',
-              },
-            }}
-          />
+          {/*<GatsbyImage*/}
+          {/*  fluid={imageOne.childImageSharp.fluid}*/}
+          {/*  sx={{*/}
+          {/*    width: '100%',*/}
+          {/*    height: 'auto',*/}
+          {/*    transition: '.3s ease',*/}
+          {/*    '&:hover': {*/}
+          {/*      opacity: '0.3',*/}
+          {/*    },*/}
+          {/*  }}*/}
+          {/*/>*/}
         </Link>
         <Link
           sx={{
@@ -128,17 +128,17 @@ const ProjectPage = () => {
               Description
             </p>
           </div>
-          <Img
-            fluid={imageTwo.childImageSharp.fluid}
-            sx={{
-              width: '100%',
-              height: 'auto',
-              transition: '.3s ease',
-              '&:hover': {
-                opacity: '0.3',
-              },
-            }}
-          />
+          {/*<GatsbyImage*/}
+          {/*  fluid={imageTwo.childImageSharp.fluid}*/}
+          {/*  sx={{*/}
+          {/*    width: '100%',*/}
+          {/*    height: 'auto',*/}
+          {/*    transition: '.3s ease',*/}
+          {/*    '&:hover': {*/}
+          {/*      opacity: '0.3',*/}
+          {/*    },*/}
+          {/*  }}*/}
+          {/*/>*/}
         </Link>
       </div>
       <div

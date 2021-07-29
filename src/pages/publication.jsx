@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react';
 import { jsx } from 'theme-ui';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -27,16 +27,16 @@ const PublicationPage = () => {
           }}
         >
           <div>
-            <Img
-              fluid={publication.childImageSharp.fluid}
-              sx={{
-                height: '24rem',
-                width: '24rem',
-                '@media screen and (max-width: 64em)': {
-                  mb: '2rem',
-                },
-              }}
-            />
+            {/*<GatsbyImage*/}
+            {/*  fluid={publication.childImageSharp.fluid}*/}
+            {/*  sx={{*/}
+            {/*    height: '24rem',*/}
+            {/*    width: '24rem',*/}
+            {/*    '@media screen and (max-width: 64em)': {*/}
+            {/*      mb: '2rem',*/}
+            {/*    },*/}
+            {/*  }}*/}
+            {/*/>*/}
           </div>
           <div
             sx={{
