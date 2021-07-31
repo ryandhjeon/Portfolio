@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { Component, useState }  from 'react';
+import React, { Component, useState, useEffect }  from 'react';
 import { jsx, MenuButton } from 'theme-ui';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
@@ -50,6 +50,11 @@ const MenuLinks = () => {
 
 export const Navbar = ({ siteTitle }) => {
   const [nav, showNav] = useState(false);
+  const html = document.querySelector('html')
+
+  useEffect(() => {
+    nav ? (html.style.overflow = 'hidden') : (html.style.overflow = 'visible')
+  }, [nav])
 
   return (
     <Headroom>
@@ -109,54 +114,57 @@ export const Navbar = ({ siteTitle }) => {
             <div />
             <div />
           </button>
-        </header>
-        <nav
-          nav={nav}
-          sx={{
-            bg: 'background',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            textAlign: 'center',
-            height: '100vh',
-            width: '100%',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            transition: 'transform 300ms',
-            transform: $nav => nav ? "translateY(0)" : "translateY(-100%)"
-          }}
-        >
-          <ul sx={{
-            listStyleType: 'none',
-            ml: 0,
-            pl: 0,
-            'li': {
-              mt: '1rem',
-              lineHeight: '3rem',
-            },
-            'a': {
-              textDecoration: 'none',
-              color: 'pampas',
-              fontFamily: 'Raleway',
-              fontSize: '5',
-              fontWeight: 'sm',
-              transition: 'color 300ms',
-              ':hover': {
-                color: 'schoolBus'
-              }
-            }
-          }}
+          <nav
+            nav={nav}
+            sx={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              height: '100vh',
+              width: '100%',
+
+              bg: 'background',
+
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              textAlign: 'center',
+
+              transition: 'transform 300ms',
+              transform: $nav => nav ? "translateY(0)" : "translateY(-100%)"
+            }}
           >
-            <li><Link to={'/'} nav={nav} onClick={() => showNav(!nav)}>Home</Link></li>
-            <li><Link to={'/project'} nav={nav} onClick={() => showNav(!nav)}>Projects</Link></li>
-            <li><Link to={'/insight'} nav={nav} onClick={() => showNav(!nav)}>Insights</Link></li>
-            <li><a href="https://www.github.com/ryandhjeon" target="_blank" nav={nav} onClick={() => showNav(!nav)}>Github</a></li>
-            <li><a href="https://www.linkedin.com/in/ryandhjeon" target="_blank" nav={nav} onClick={() => showNav(!nav)}>LinkedIn</a></li>
-            <li><a href="mailto:ryandhjeon@gmail.com" nav={nav} onClick={() => showNav(!nav)}>Email</a></li>
-          </ul>
-        </nav>
+            <ul sx={{
+              listStyleType: 'none',
+              ml: 0,
+              pl: 0,
+              'li': {
+                mt: '1rem',
+                lineHeight: '3rem',
+              },
+              'a': {
+                textDecoration: 'none',
+                color: 'pampas',
+                fontFamily: 'Raleway',
+                fontSize: '6',
+                fontWeight: 'sm',
+                transition: 'color 300ms',
+                ':hover': {
+                  color: 'schoolBus'
+                }
+              }
+            }}
+            >
+              <li><Link to={'/'} nav={nav} onClick={() => showNav(!nav)}>Home</Link></li>
+              <li><Link to={'/project'} nav={nav} onClick={() => showNav(!nav)}>Projects</Link></li>
+              <li><Link to={'/insight'} nav={nav} onClick={() => showNav(!nav)}>Insights</Link></li>
+              <li><a href="https://www.github.com/ryandhjeon" target="_blank" nav={nav} onClick={() => showNav(!nav)}>Github</a></li>
+              <li><a href="https://www.linkedin.com/in/ryandhjeon" target="_blank" nav={nav} onClick={() => showNav(!nav)}>LinkedIn</a></li>
+              <li><a href="mailto:ryandhjeon@gmail.com" nav={nav} onClick={() => showNav(!nav)}>Email</a></li>
+            </ul>
+          </nav>
+        </header>
       </div>
     </Headroom>
   );
