@@ -131,7 +131,7 @@ export const Navbar = ({ siteTitle }) => {
               alignItems: 'center',
               textAlign: 'center',
 
-              transition: 'transform 300ms',
+              transition: 'transform 500ms',
               transform: $nav => nav ? "translateY(0)" : "translateY(-100%)"
             }}
           >
@@ -146,10 +146,9 @@ export const Navbar = ({ siteTitle }) => {
               'a': {
                 textDecoration: 'none',
                 color: 'pampas',
-                fontFamily: 'Raleway',
                 fontSize: '6',
                 fontWeight: 'sm',
-                transition: 'color 300ms',
+                transition: 'color 500ms',
                 ':hover': {
                   color: 'schoolBus'
                 }

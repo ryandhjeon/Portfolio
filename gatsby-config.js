@@ -42,20 +42,20 @@ module.exports = {
         },
       },
     },
-    // {
-    //   resolve: "gatsby-plugin-web-font-loader",
-    //   options: {
-    //     typekit: {
-    //       id: process.env.TYPEKIT_ID,
-    //     },
-    //   },
-    // },
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
-        pathToConfigModule: `src/utils/typography`,
+        typekit: {
+          id: process.env.TYPEKIT_ID,
+        },
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-typography`,
+    //   options: {
+    //     pathToConfigModule: `src/utils/typography`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
