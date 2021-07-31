@@ -30,24 +30,24 @@ const Template = ({ data, pageContext }) => {
           mt: 6,
         }}
       >
-        <Helmet title={`INSIGHT - ${post.frontmatter.title}`} />
+        <Helmet title={`INSIGHT - ${post.frontmatter.title}`}/>
         <div
           sx={{
-            textAlign: 'center',
-            letterSpacing: '0.1rem',
-            textTransform: 'Uppercase',
+            textAlign: "center",
+            letterSpacing: "0.1rem",
+            textTransform: "Uppercase",
           }}
         >
           <div
             sx={{
-              fontSize: '12px',
-              color: 'pampas',
-              opacity: '0.8',
+              fontSize: "12px",
+              color: "pampas",
+              opacity: "0.8",
               mb: 5,
             }}
           >
             <span>
-              {post.frontmatter.date} · <Link to={'/about'}>{author}</Link>
+              {post.frontmatter.date} · <Link to={"/about"}>{author}</Link>
             </span>
           </div>
           <div
@@ -57,16 +57,16 @@ const Template = ({ data, pageContext }) => {
           >
             <div
               sx={{
-                fontSize: '6',
+                fontSize: "6",
               }}
             >
               {post.frontmatter.title}
             </div>
             <div
               sx={{
-                fontSize: '0',
-                opacity: '0.8',
-                mt: '2',
+                fontSize: "0",
+                opacity: "0.8",
+                mt: "2",
               }}
             >
               [{post.frontmatter.description}]
@@ -74,12 +74,12 @@ const Template = ({ data, pageContext }) => {
           </div>
           <div
             sx={{
-              fontSize: '0',
-              opacity: '0.7',
-              color: 'schoolBus',
-              textTransform: 'Uppercase',
-              textAlign: 'center',
-              mb: '5'
+              fontSize: "0",
+              opacity: "0.7",
+              color: "schoolBus",
+              textTransform: "Uppercase",
+              textAlign: "center",
+              mb: "5",
             }}
           >
             {post.frontmatter.category} · {post.timeToRead} min read
@@ -90,12 +90,12 @@ const Template = ({ data, pageContext }) => {
             image={pathToImage}
             alt={post.frontmatter.title}
             sx={{
-              maxWidth: '1040px',
-              height: '30rem',
-              mb: '6',
-              mx: 'auto',
-              '@media screen and (max-width: 56em)': {
-                maxWidth: '100%',
+              maxWidth: "1040px",
+              height: "30rem",
+              mb: "6",
+              mx: "auto",
+              "@media screen and (max-width: 56em)": {
+                maxWidth: "100%",
               },
             }}
           />
@@ -108,8 +108,8 @@ const Template = ({ data, pageContext }) => {
         {/*/>*/}
         <Wrapper
           sx={{
-            color: 'woodSmoke',
-            bg: 'pampas',
+            color: "woodSmoke",
+            bg: "pampas",
             pt: 6,
             pb: 6,
             // '@media screen and (max-width: 56em)': {
@@ -118,8 +118,8 @@ const Template = ({ data, pageContext }) => {
           }}
         >
           <div sx={{
-            maxWidth: '700px',
-            mx: 'auto'
+            maxWidth: "700px",
+            mx: "auto",
           }}>
             <MDXRenderer>{post.body}</MDXRenderer>
           </div>
@@ -169,25 +169,24 @@ const Template = ({ data, pageContext }) => {
         </Wrapper>
         <div
           sx={{
-            bg: 'woodSmoke',
-            mt: 4,
+            bg: "woodSmoke",
             py: 5,
-            textAlign: 'center',
+            textAlign: "center",
           }}
         >
-          <span sx={{ textTransform: 'uppercase' }}>Insights de Ryan</span>
+          <span sx={{ textTransform: "uppercase" }}>Insights de Ryan</span>
           <div
             sx={{
-              display: 'grid',
+              display: "grid",
               // width: '1040px',
-              mx: 'auto',
+              mx: "auto",
               py: 5,
               gridGap: 1,
-              '@media screen and (max-width: 40em)': {
-                width: '100%',
+              "@media screen and (max-width: 40em)": {
+                width: "100%",
                 gridTemplateColumns: `repeat(1, 1fr)`,
               },
-              '@media screen and (min-width: 40em)': {
+              "@media screen and (min-width: 40em)": {
                 gridTemplateColumns: `repeat(2, 1fr)`,
               },
             }}
@@ -198,43 +197,40 @@ const Template = ({ data, pageContext }) => {
                   <Link
                     to={previous.frontmatter.path}
                     sx={{
-                      position: 'relative',
-                      '&:hover': {
-                        transition: 'all 0.3s',
-                        transform: 'translate(-7px, 0px)',
-                        '>span': {
-                          visibility: 'visible',
-                        },
+                      bg: "background",
+                      position: "relative",
+                      textDecoration: "none",
+                      p: "5",
+                      fontSize: "4",
+                      fontWeight: "sm",
+                      "&:hover": {
+                        transition: "all 300ms",
+                        bg: "#393939",
                       },
                     }}
                   >
-                    <span
-                      sx={{
-                        position: 'absolute',
-                        left: 0,
-                        opacity: '0.8',
-                        color: 'schoolBus',
-                        visibility: 'hidden',
-                      }}
-                    >
-                      ◅
-                    </span>
                     <div
                       sx={{
-                        textAlign: 'center',
+                        color: "schoolBus",
+                        fontSize: "2",
+                        pb: "3",
+                        opacity: '0.8'
+                      }}>Previous
+                    </div>
+                    <div
+                      sx={{
+                        textAlign: "center",
                       }}
                     >
-
                       {previous.frontmatter.title}
                       <div
                         sx={{
-                          fontSize: '12px',
-                          color: 'gullGray',
-                          opacity: '0.8',
-                          textTransform: 'uppercase',
+                          fontSize: "3",
+                          color: "gullGray",
+                          opacity: "0.8",
+                          pt: "1"
                         }}
                       >
-                        {previous.frontmatter.date}
                         {previous.frontmatter.description}
                       </div>
                     </div>
@@ -248,43 +244,40 @@ const Template = ({ data, pageContext }) => {
                   <Link
                     to={next.frontmatter.path}
                     sx={{
-                      position: 'relative',
-                      '&:hover': {
-                        transition: 'all 0.3s',
-                        transform: 'translate(7px, 0px)',
-                        '>span': {
-                          visibility: 'visible',
-                        },
+                      bg: "background",
+                      position: "relative",
+                      textDecoration: "none",
+                      p: "5",
+                      fontSize: "4",
+                      fontWeight: "sm",
+                      "&:hover": {
+                        transition: "all 300ms",
+                        bg: "#393939",
                       },
                     }}
                   >
-                    <span
-                      sx={{
-                        position: 'absolute',
-                        right: 0,
-                        opacity: '0.8',
-                        color: 'schoolBus',
-                        visibility: 'hidden',
-                      }}
-                    >
-                      {' '}
-                      ▻{' '}
-                    </span>
                     <div
                       sx={{
-                        textAlign: 'center',
+                        color: "schoolBus",
+                        fontSize: "2",
+                        pb: "3",
+                        opacity: '0.8'
+                      }}>Next
+                    </div>
+                    <div
+                      sx={{
+                        textAlign: "center",
                       }}
                     >
                       {next.frontmatter.title}
                       <div
                         sx={{
-                          fontSize: '12px',
-                          color: 'gullGray',
-                          opacity: '0.8',
-                          textTransform: 'uppercase',
+                          fontSize: "3",
+                          color: "gullGray",
+                          opacity: "0.8",
+                          pt: "1"
                         }}
                       >
-                        {next.frontmatter.date}
                         {next.frontmatter.description}
                       </div>
                     </div>
@@ -296,7 +289,7 @@ const Template = ({ data, pageContext }) => {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
 export const postQuery = graphql`

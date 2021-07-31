@@ -59,7 +59,7 @@ export const Navbar = ({ siteTitle }) => {
             to="/"
             sx={{
               fontWeight: 'md',
-              fontSize: '1',
+              fontSize: '2',
             }}
           >
             {siteTitle}

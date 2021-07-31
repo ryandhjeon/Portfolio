@@ -10,14 +10,6 @@ const siteMetadata = {
   linkedIn: `ryandhjeon`,
   github : `ryandhjeon`,
   image: '',
-  simpleData: [
-    "Simple #1", "Simple #2"
-  ],
-  complexData: [
-    { name: "John", age: "22"},
-    { name: "Mary", age: "33"},
-    { name: "Kim", age: "44"},
-  ]
 }
 
 module.exports = {
@@ -41,7 +33,7 @@ module.exports = {
       options: {
         extensions: [`.mdx`, `.md`],
         defaultLayouts: {
-          insight: require.resolve("src/templates/postTemplate.jsx"),
+          // insight: require.resolve("./src/templates/postTemplate.jsx"),
           // default: require.resolve("./src/components/default-page-layout.js"),
         },
       },
