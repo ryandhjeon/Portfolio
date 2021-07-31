@@ -1,9 +1,6 @@
 /** @jsx jsx */
 import React from 'react';
 import { jsx } from 'theme-ui';
-import { graphql } from 'gatsby';
-import useImageQuery from '../utils/hooks/imageQuery';
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { StaticImage } from "gatsby-plugin-image"
 
 import SEO from '../components/seo';
@@ -13,8 +10,6 @@ import { useSiteMetadata } from '../utils/useSiteMetadata';
 
 const IndexPage = () => {
   const { description, title, image, siteUrl, siteLanguage, siteLocale, twitter } = useSiteMetadata();
-
-  const { portfolio_about } = useImageQuery();
 
   return (
     <Layout

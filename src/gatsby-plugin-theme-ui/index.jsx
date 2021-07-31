@@ -29,8 +29,11 @@ export default {
     bold: 700,
   },
   styles: {
-    root: {
-
+    pre: {
+      color: 'red !important'
+    },
+    'a': {
+      color: 'red !important',
     }
   },
   layout: {
@@ -44,7 +47,7 @@ export default {
       maxWidth: '1040px',
       maxHeight: '50px',
       mx: 'auto',
-      p: '13px 20px',
+      p: '15px 20px',
       textTransform: 'uppercase',
       fontSize: '1',
       fontWeight: 'sm',
@@ -59,7 +62,7 @@ export default {
       },
     },
     main: {
-      flex: 1,
+      // flex: 1,
       color: 'pampas',
       // overflowX: 'hidden',
       'a': {

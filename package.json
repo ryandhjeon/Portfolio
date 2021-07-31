@@ -24,6 +24,7 @@
     "gatsby-plugin-sharp": "^3.10.2",
     "gatsby-plugin-theme-ui": "^0.10.1",
     "gatsby-source-filesystem": "^3.10.0",
+    "gatsby-transformer-remark": "^4.7.0",
     "gatsby-transformer-sharp": "^3.10.0",
     "graphql": "^15.5.1",
     "prism-react-renderer": "^1.2.1",

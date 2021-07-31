@@ -2,13 +2,22 @@ const siteMetadata = {
   title: `Maison De Ryan`,
   description: `Ryan's daily note`,
   author: `Ryan Jeon`,
-  image: ``,
   siteUrl: `https://www.ryanjeon.com`,
   siteLanguage: `en-US`,
   siteLocale: `en_us`,
+  instagram: 'ryanjeon__',
   twitter: `ryandhjeon`,
   linkedIn: `ryandhjeon`,
   github : `ryandhjeon`,
+  image: '',
+  simpleData: [
+    "Simple #1", "Simple #2"
+  ],
+  complexData: [
+    { name: "John", age: "22"},
+    { name: "Mary", age: "33"},
+    { name: "Kim", age: "44"},
+  ]
 }
 
 module.exports = {
@@ -31,6 +40,10 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
+        defaultLayouts: {
+          insight: require.resolve("src/templates/postTemplate.jsx"),
+          // default: require.resolve("./src/components/default-page-layout.js"),
+        },
       },
     },
     {
@@ -38,6 +51,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
       },
     },
     {
@@ -54,5 +74,6 @@ module.exports = {
         path: `${__dirname}/src/projects`,
       },
     },
+    `gatsby-transformer-remark`,
   ],
 };

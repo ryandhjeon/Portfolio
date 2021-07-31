@@ -82,7 +82,7 @@ export const Navbar = ({ siteTitle }) => {
                 display: 'none',
               },
               'div': {
-                width: '1.2rem',
+                width: '1.3rem',
                 height: '.05rem',
                 background: 'white',
                 borderRadius: '5px',
