@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { Component, useState, useEffect }  from 'react';
+import React, { Component, useLayoutEffect, useState, useEffect }  from 'react';
 import { jsx, MenuButton } from 'theme-ui';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
@@ -50,9 +50,9 @@ const MenuLinks = () => {
 
 export const Navbar = ({ siteTitle }) => {
   const [nav, showNav] = useState(false);
-  const html = document.querySelector('html')
 
   useEffect(() => {
+    const html = document.querySelector('html')
     nav ? (html.style.overflow = 'hidden') : (html.style.overflow = 'visible')
   }, [nav])
 
