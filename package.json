@@ -23,6 +23,8 @@
     "gatsby-plugin-page-creator": "^3.10.0",
     "gatsby-plugin-sharp": "^3.10.2",
     "gatsby-plugin-theme-ui": "^0.10.1",
+    "gatsby-plugin-typography": "^3.10.0",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^3.10.0",
     "gatsby-transformer-remark": "^4.7.0",
     "gatsby-transformer-sharp": "^3.10.0",
@@ -34,7 +36,10 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.2.0",
     "react-seo-component": "^2.0.2",
-    "theme-ui": "^0.10.0"
+    "react-typography": "^0.16.20",
+    "theme-ui": "^0.10.0",
+    "typography": "^0.16.21",
+    "typography-theme-github": "^0.16.19"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",

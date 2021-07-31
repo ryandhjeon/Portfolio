@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 const siteMetadata = {
   title: `Maison De Ryan`,
   description: `Ryan's daily note`,
@@ -40,6 +42,20 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        typekit: {
+          id: process.env.TYPEKIT_ID,
+        },
+      },
+    },
+    // {
+    //   resolve: `gatsby-plugin-typography`,
+    //   options: {
+    //     pathToConfigModule: `src/utils/typography`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
