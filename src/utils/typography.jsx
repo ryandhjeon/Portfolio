@@ -4,7 +4,7 @@ import CodePlugin from "typography-plugin-code"
 import github from "typography-theme-github"
 
 github.baseFontSize = '18px'
-github.bodyFontFamily = ['Roboto Condensed', 'IBM Plex Sans Condensed', 'sans-serif']
+github.bodyFontFamily = ['Raleway', 'Roboto Condensed', 'IBM Plex Sans Condensed', 'sans-serif']
 github.baseLineHeight = 1.6
 github.plugins = [
   new CodePlugin(),

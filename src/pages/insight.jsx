@@ -84,11 +84,11 @@ const Insight = () => {
                 sx={{
                   textAlign: "center",
                   textDecoration: "none",
-                  opacity: "0.5",
-                  "&:hover": {
-                    opacity: 1,
-                    transition: "all 300ms",
-                  },
+                  // opacity: "0.5",
+                  // "&:hover": {
+                  //   opacity: 1,
+                  //   transition: "all 500ms",
+                  // },
                   "@media screen and (max-width: 40em)": {
                     opacity: 1,
                   },
@@ -100,7 +100,7 @@ const Insight = () => {
                     alt={post.frontmatter.title}
                     sx={{
                       // width: '100%'
-                      opacity: "0.7",
+                      opacity: "0.5",
                       height: "14rem",
                       mb: 3,
                       "&:hover": {
@@ -126,8 +126,10 @@ const Insight = () => {
                 </div>
                 <div
                   sx={{
-                    fontSize: "22px",
+                    fontSize: "5",
                     mt: 2,
+                    color: "pampas",
+                    opacity: "0.9",
                   }}
                 >
                   {post.frontmatter.title}

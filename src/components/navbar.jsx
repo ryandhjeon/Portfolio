@@ -34,7 +34,7 @@ const MenuLinks = () => {
           ml: 3,
         }}
       >
-        <Link to={'/insight'}>Insights</Link>
+        <Link to={'/project'}>Projects</Link>
       </li>
       <li
         sx={{
@@ -42,7 +42,7 @@ const MenuLinks = () => {
           ml: 3,
         }}
       >
-        <Link to={'/project'}>Projects</Link>
+        <Link to={'/insight'}>Insights</Link>
       </li>
     </ul>
   );

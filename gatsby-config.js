@@ -2,6 +2,8 @@ const siteMetadata = {
   title: `Maison De Ryan`,
   description: `Ryan's daily note`,
   author: `Ryan Jeon`,
+  schoolEmail: `djeon@bgsu.edu`,
+  personalEmail: `ryandhjeon@gmail.com`,
   siteUrl: `https://www.ryanjeon.com`,
   siteLanguage: `en-US`,
   siteLocale: `en_us`,

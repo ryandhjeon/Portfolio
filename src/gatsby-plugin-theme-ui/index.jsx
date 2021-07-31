@@ -20,18 +20,17 @@ export default {
   },
   breakpoints: [ '40em', '56em', '64em' ],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+  // fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+  fontSizes: ['0.75rem', '0.875rem', '1rem', '1.125rem', '1.25rem', '1.5rem', '1.75rem', '2rem', '2.25rem', '2.625rem', '3rem', '3.375rem', '3.75rem', '4.25rem', '4.75rem', '5.25rem', '5.75rem'],
+  lineHeights: [1, 1.25, 1.5, 1.75],
   fontWeights: {
     xs: 100,
     sm: 200,
     md: 400,
     lg: 700,
-    bold: 700,
+    bold: 800,
   },
   styles: {
-    pre: {
-      color: 'red !important'
-    },
     'a': {
       color: 'red !important',
     }
@@ -45,9 +44,9 @@ export default {
       justifyContent: 'space-between',
       alignItems: 'center',
       maxWidth: '1040px',
-      maxHeight: '50px',
+      height: '45px !important',
       mx: 'auto',
-      p: '15px 20px',
+      px: '20px',
       textTransform: 'uppercase',
       fontSize: '1',
       fontWeight: 'sm',
@@ -62,21 +61,11 @@ export default {
       },
     },
     main: {
-      // flex: 1,
       color: 'pampas',
-      // overflowX: 'hidden',
-      'a': {
-        color: 'primaryText',
-      },
-      'a:hover': {
-        color: 'white',
-        transition: 'all 500ms',
-        textDecoration: 'none',
-      },
     },
     footer: {
-      fontSize: '12px',
-      fontWeight: 100,
+      fontSize: '1',
+      fontWeight: 'sm',
       color: 'gullGray',
       bg: 'woodSmoke',
       'a': {

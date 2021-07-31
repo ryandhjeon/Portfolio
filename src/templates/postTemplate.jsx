@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React from 'react';
-import { jsx, Divider } from 'theme-ui';
+import { jsx } from 'theme-ui';
 
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -16,7 +16,7 @@ import { Share } from '../components/share';
 
 
 const Template = ({ data, pageContext }) => {
-  const { description, author } = useSiteMetadata();
+  const { author } = useSiteMetadata();
   const { mdx: post } = data;
   const pathToImage = getImage(post.frontmatter.cover)
   const { previous, next } = pageContext;
@@ -47,7 +47,7 @@ const Template = ({ data, pageContext }) => {
             }}
           >
             <span>
-              {post.frontmatter.date} · <Link to={"/about"}>{author}</Link>
+              {post.frontmatter.date} · <Link to={"/"}>{author}</Link>
             </span>
           </div>
           <div
@@ -174,7 +174,7 @@ const Template = ({ data, pageContext }) => {
             textAlign: "center",
           }}
         >
-          <span sx={{ textTransform: "uppercase" }}>Insights de Ryan</span>
+          {/*<span sx={{ textTransform: "uppercase" }}>Insights de Ryan</span>*/}
           <div
             sx={{
               display: "grid",
@@ -220,6 +220,7 @@ const Template = ({ data, pageContext }) => {
                     <div
                       sx={{
                         textAlign: "center",
+                        color: 'pampas',
                       }}
                     >
                       {previous.frontmatter.title}
@@ -266,6 +267,7 @@ const Template = ({ data, pageContext }) => {
                     </div>
                     <div
                       sx={{
+                        color: 'pampas',
                         textAlign: "center",
                       }}
                     >
@@ -286,6 +288,26 @@ const Template = ({ data, pageContext }) => {
               </>
             )}
           </div>
+          <Link
+            to={'/insight'}
+            sx={{
+            bg: "background",
+            py: '3',
+            px: '5',
+            textDecoration: 'none',
+            "&:hover": {
+              transition: "all 300ms",
+              bg: "#393939",
+            },
+          }}>
+            <span
+              sx={{
+                fontSize: '2',
+                color: 'schoolBus',
+                opacity: '0.8',
+                fontWeight: 'sm',
+              }}>More insights</span>
+          </Link>
         </div>
       </div>
     </Layout>
