@@ -173,9 +173,11 @@ const Insight = () => {
           sx={{
             textAlign: 'center',
             my: 6,
+            fontSize: '3',
+            fontWeight: 'sm'
           }}
         >
-          <h1>Idea playground</h1>
+          <h1 sx={{ fontWeight: 'md'}}>Idea playground</h1>
           <p>Personal insights on the data science, programming, business strategy and branding</p>
         </div>
         <PostCard />

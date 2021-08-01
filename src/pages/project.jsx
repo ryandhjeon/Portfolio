@@ -7,6 +7,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Container from '../components/container';
+import Wrapper from '../components/wrapper';
 import useImageQuery  from '../utils/hooks/imageQuery';
 
 const ProjectPage = () => {
@@ -15,16 +16,17 @@ const ProjectPage = () => {
   return (
     <Layout>
       <SEO title="Project" />
-      <Container
+      <Wrapper
         sx={{
           textAlign: 'center',
-          fontSize: '1.2rem',
+          fontSize: '3',
+          fontWeight: 'sm',
           maxWidth: '40em',
           mx: 'auto',
-          fontWeight: 100,
-          '@media screen and (max-width: 40em)': {
-            fontSize: '1rem',
-          },
+          my: 6,
+          // '@media screen and (max-width: 40em)': {
+          //   fontSize: '1rem',
+          // },
         }}
       >
         <p
@@ -37,7 +39,7 @@ const ProjectPage = () => {
           karma, whatever. This approach has never let me down, and it has made all the difference in my life."
         </p>
         <i>- Steve Jobs</i>
-      </Container>
+      </Wrapper>
       <div
         sx={{
           display: 'grid',

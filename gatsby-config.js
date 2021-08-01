@@ -42,14 +42,14 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: ['Raleway']
-        }
-      }
-    },
+    // {
+    //   resolve: "gatsby-plugin-web-font-loader",
+    //   options: {
+    //     google: {
+    //       families: ['Raleway']
+    //     }
+    //   }
+    // },
     // {
     //   resolve: `gatsby-plugin-typography`,
     //   options: {

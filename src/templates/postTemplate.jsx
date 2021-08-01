@@ -30,7 +30,7 @@ const Template = ({ data, pageContext }) => {
           mt: 6,
         }}
       >
-        <Helmet title={`INSIGHT - ${post.frontmatter.title}`}/>
+        <Helmet title={`${post.frontmatter.title}`}/>
         <div
           sx={{
             textAlign: "center",
@@ -40,15 +40,22 @@ const Template = ({ data, pageContext }) => {
         >
           <div
             sx={{
-              fontSize: "12px",
+              fontSize: "0",
               color: "pampas",
               opacity: "0.8",
               mb: 5,
             }}
           >
-            <span>
-              {post.frontmatter.date} · <Link to={"/"}>{author}</Link>
-            </span>
+            {post.frontmatter.date} ·
+            <Link
+              to={"/"}
+              sx={{
+                color: "pampas",
+                textDecoration: "none",
+                "&hover": {
+                  color: "schoolBus",
+                },
+              }}> {author}</Link>
           </div>
           <div
             sx={{
@@ -69,7 +76,7 @@ const Template = ({ data, pageContext }) => {
                 mt: "2",
               }}
             >
-              [{post.frontmatter.description}]
+               - {post.frontmatter.description} -
             </div>
           </div>
           <div
@@ -110,8 +117,7 @@ const Template = ({ data, pageContext }) => {
           sx={{
             color: "woodSmoke",
             bg: "pampas",
-            pt: 6,
-            pb: 6,
+            py: 6,
             // '@media screen and (max-width: 56em)': {
             //   maxWidth: '100%',
             // },
@@ -214,13 +220,13 @@ const Template = ({ data, pageContext }) => {
                         color: "schoolBus",
                         fontSize: "2",
                         pb: "3",
-                        opacity: '0.8'
+                        opacity: "0.8",
                       }}>Previous
                     </div>
                     <div
                       sx={{
                         textAlign: "center",
-                        color: 'pampas',
+                        color: "pampas",
                       }}
                     >
                       {previous.frontmatter.title}
@@ -229,7 +235,7 @@ const Template = ({ data, pageContext }) => {
                           fontSize: "3",
                           color: "gullGray",
                           opacity: "0.8",
-                          pt: "1"
+                          pt: "1",
                         }}
                       >
                         {previous.frontmatter.description}
@@ -262,12 +268,12 @@ const Template = ({ data, pageContext }) => {
                         color: "schoolBus",
                         fontSize: "2",
                         pb: "3",
-                        opacity: '0.8'
+                        opacity: "0.8",
                       }}>Next
                     </div>
                     <div
                       sx={{
-                        color: 'pampas',
+                        color: "pampas",
                         textAlign: "center",
                       }}
                     >
@@ -277,7 +283,7 @@ const Template = ({ data, pageContext }) => {
                           fontSize: "3",
                           color: "gullGray",
                           opacity: "0.8",
-                          pt: "1"
+                          pt: "1",
                         }}
                       >
                         {next.frontmatter.description}
@@ -289,23 +295,23 @@ const Template = ({ data, pageContext }) => {
             )}
           </div>
           <Link
-            to={'/insight'}
+            to={"/insight"}
             sx={{
-            bg: "background",
-            py: '3',
-            px: '5',
-            textDecoration: 'none',
-            "&:hover": {
-              transition: "all 300ms",
-              bg: "#393939",
-            },
-          }}>
+              bg: "background",
+              py: "3",
+              px: "5",
+              textDecoration: "none",
+              "&:hover": {
+                transition: "all 300ms",
+                bg: "#393939",
+              },
+            }}>
             <span
               sx={{
-                fontSize: '2',
-                color: 'schoolBus',
-                opacity: '0.8',
-                fontWeight: 'sm',
+                fontSize: "2",
+                color: "schoolBus",
+                opacity: "0.8",
+                fontWeight: "sm",
               }}>More insights</span>
           </Link>
         </div>

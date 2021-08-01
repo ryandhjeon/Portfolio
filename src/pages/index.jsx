@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import React from 'react';
-import { jsx } from 'theme-ui';
+import React from 'react'
+import { jsx } from 'theme-ui'
 import { StaticImage } from "gatsby-plugin-image"
 
 import SEO from '../components/seo';
@@ -30,12 +30,22 @@ const IndexPage = () => {
       />
       <Container
         sx={{
-          fontSize: "80px",
+          fontSize: "14",
+          fontWeight: 'xs',
           textAlign: "center",
           justifyContent: "center",
           letterSpacing: 10,
+          "@media screen and (max-width: 64em)": {
+            fontSize: "12",
+            fontWeight: 'xs',
+            letterSpacing: 5,
+            height: "300px",
+          },
           "@media screen and (max-width: 40em)": {
-            display: "none",
+            fontSize: "7",
+            fontWeight: 'xs',
+            letterSpacing: 5,
+            height: "300px",
           },
         }}
       >
@@ -43,20 +53,21 @@ const IndexPage = () => {
           R Y A N<span>&nbsp;</span> J E O N
         </p>
       </Container>
-      <Container
-        sx={{
-          display: "none",
-          "@media screen and (max-width: 40em)": {
-            display: "flex",
-            fontSize: "4rem",
-            letterSpacing: 10,
-            height: "500px",
-          },
-        }}
-      >
-        <span>R Y A N</span>
-        <span>J E O N</span>
-      </Container>
+      {/*<Container*/}
+      {/*  sx={{*/}
+      {/*    display: "none",*/}
+      {/*    "@media screen and (max-width: 40em)": {*/}
+      {/*      display: "flex",*/}
+      {/*      fontSize: "5",*/}
+      {/*      fontWeight: 'xs',*/}
+      {/*      letterSpacing: 10,*/}
+      {/*      height: "500px",*/}
+      {/*    },*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  <span>R Y A N</span>*/}
+      {/*  <span>J E O N</span>*/}
+      {/*</Container>*/}
       <Container
         sx={{
           bg: "pampas",

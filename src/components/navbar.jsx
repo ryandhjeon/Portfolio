@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React, { Component, useLayoutEffect, useState, useEffect }  from 'react';
-import { jsx, MenuButton } from 'theme-ui';
+import { jsx, MenuButton, Divider } from 'theme-ui';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import Headroom from 'react-headroom';
@@ -12,10 +12,7 @@ const MenuLinks = () => {
         display: 'flex',
         listStyle: 'none',
         justifyContent: 'space-between',
-        letterSpacing: 2,
         fontSize: '1',
-        // ml: 'none',
-        // mb: '0 !important',
         '@media screen and (max-width: 640px)': {
           display: 'none',
         },
@@ -127,7 +124,7 @@ export const Navbar = ({ siteTitle }) => {
 
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center',
+              // justifyContent: 'center',
               alignItems: 'center',
               textAlign: 'center',
 
@@ -139,6 +136,7 @@ export const Navbar = ({ siteTitle }) => {
               listStyleType: 'none',
               ml: 0,
               pl: 0,
+              mt: 6,
               'li': {
                 mt: '1rem',
                 lineHeight: '3rem',
@@ -147,7 +145,7 @@ export const Navbar = ({ siteTitle }) => {
                 textDecoration: 'none',
                 color: 'pampas',
                 fontSize: '6',
-                fontWeight: 'sm',
+                fontWeight: 'sx',
                 transition: 'color 500ms',
                 ':hover': {
                   color: 'schoolBus'
@@ -158,6 +156,7 @@ export const Navbar = ({ siteTitle }) => {
               <li><Link to={'/'} nav={nav} onClick={() => showNav(!nav)}>Home</Link></li>
               <li><Link to={'/project'} nav={nav} onClick={() => showNav(!nav)}>Projects</Link></li>
               <li><Link to={'/insight'} nav={nav} onClick={() => showNav(!nav)}>Insights</Link></li>
+              <Divider />
               <li><a href="https://www.github.com/ryandhjeon" target="_blank" nav={nav} onClick={() => showNav(!nav)}>Github</a></li>
               <li><a href="https://www.linkedin.com/in/ryandhjeon" target="_blank" nav={nav} onClick={() => showNav(!nav)}>LinkedIn</a></li>
               <li><a href="mailto:ryandhjeon@gmail.com" nav={nav} onClick={() => showNav(!nav)}>Email</a></li>
