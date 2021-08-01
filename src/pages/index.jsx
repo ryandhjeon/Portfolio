@@ -53,21 +53,6 @@ const IndexPage = () => {
           R Y A N<span>&nbsp;</span> J E O N
         </p>
       </Container>
-      {/*<Container*/}
-      {/*  sx={{*/}
-      {/*    display: "none",*/}
-      {/*    "@media screen and (max-width: 40em)": {*/}
-      {/*      display: "flex",*/}
-      {/*      fontSize: "5",*/}
-      {/*      fontWeight: 'xs',*/}
-      {/*      letterSpacing: 10,*/}
-      {/*      height: "500px",*/}
-      {/*    },*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*  <span>R Y A N</span>*/}
-      {/*  <span>J E O N</span>*/}
-      {/*</Container>*/}
       <Container
         sx={{
           bg: "pampas",

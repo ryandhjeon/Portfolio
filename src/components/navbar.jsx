@@ -1,8 +1,7 @@
 /** @jsx jsx */
-import React, { Component, useLayoutEffect, useState, useEffect }  from 'react';
-import { jsx, MenuButton, Divider } from 'theme-ui';
+import React, { useState, useEffect }  from 'react';
+import { jsx, Divider } from 'theme-ui';
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import Headroom from 'react-headroom';
 
 const MenuLinks = () => {
@@ -13,6 +12,7 @@ const MenuLinks = () => {
         listStyle: 'none',
         justifyContent: 'space-between',
         fontSize: '1',
+        fontWeight: 'md',
         '@media screen and (max-width: 640px)': {
           display: 'none',
         },
@@ -62,6 +62,9 @@ export const Navbar = ({ siteTitle }) => {
             sx={{
               fontWeight: 'md',
               fontSize: '2',
+              ':hover': {
+                color: 'white !important'
+              }
             }}
           >
             {siteTitle}
