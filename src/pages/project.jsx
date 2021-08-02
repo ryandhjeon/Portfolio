@@ -1,18 +1,13 @@
 /** @jsx jsx */
 import React from 'react';
 import { jsx } from 'theme-ui';
-import { graphql, Link } from 'gatsby';
-import { GatsbyImage } from "gatsby-plugin-image"
+import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import Container from '../components/container';
 import Wrapper from '../components/wrapper';
-import useImageQuery  from '../utils/hooks/imageQuery';
 
 const ProjectPage = () => {
-  const { imageOne, imageTwo } = useImageQuery();
-
   return (
     <Layout>
       <SEO title="Project" />

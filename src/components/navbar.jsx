@@ -131,7 +131,7 @@ export const Navbar = ({ siteTitle }) => {
               alignItems: 'center',
               textAlign: 'center',
 
-              transition: 'transform 500ms',
+              transition: 'transform 400ms',
               transform: $nav => nav ? "translateY(0)" : "translateY(-100%)"
             }}
           >
@@ -160,9 +160,9 @@ export const Navbar = ({ siteTitle }) => {
               <li><Link to={'/project'} nav={nav} onClick={() => showNav(!nav)}>Projects</Link></li>
               <li><Link to={'/insight'} nav={nav} onClick={() => showNav(!nav)}>Insights</Link></li>
               <Divider />
-              <li><a href="https://www.github.com/ryandhjeon" target="_blank" nav={nav} onClick={() => showNav(!nav)}>Github</a></li>
-              <li><a href="https://www.linkedin.com/in/ryandhjeon" target="_blank" nav={nav} onClick={() => showNav(!nav)}>LinkedIn</a></li>
-              <li><a href="mailto:ryandhjeon@gmail.com" nav={nav} onClick={() => showNav(!nav)}>Email</a></li>
+              <li><a href="https://www.github.com/ryandhjeon" target="_blank" rel="noreferrer" nav={nav} onClick={() => showNav(!nav)}>Github</a></li>
+              <li><a href="https://www.linkedin.com/in/ryandhjeon" target="_blank" rel="noreferrer" nav={nav} onClick={() => showNav(!nav)}>LinkedIn</a></li>
+              <li><a href="mailto:ryandhjeon@gmail.com" rel="noreferrer" nav={nav} onClick={() => showNav(!nav)}>Email</a></li>
             </ul>
           </nav>
         </header>

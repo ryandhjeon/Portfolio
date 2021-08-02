@@ -36,26 +36,8 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
-        defaultLayouts: {
-          // insight: require.resolve("./src/templates/postTemplate.jsx"),
-          // default: require.resolve("./src/components/default-page-layout.js"),
-        },
       },
     },
-    // {
-    //   resolve: "gatsby-plugin-web-font-loader",
-    //   options: {
-    //     google: {
-    //       families: ['Raleway']
-    //     }
-    //   }
-    // },
-    // {
-    //   resolve: `gatsby-plugin-typography`,
-    //   options: {
-    //     pathToConfigModule: `src/utils/typography`,
-    //   },
-    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

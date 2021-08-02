@@ -7,7 +7,7 @@ import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Container from '../components/container';
 import { useSiteMetadata } from '../utils/useSiteMetadata';
-import { FaPercent, FaRegEnvelope, FaRing } from "react-icons/fa"
+import { FaRegEnvelope } from "react-icons/fa"
 
 const IndexPage = () => {
   const { description, personalEmail, title, image, siteUrl, siteLanguage, siteLocale, twitter } = useSiteMetadata();
@@ -23,7 +23,7 @@ const IndexPage = () => {
         title={title}
         description={description || `nothing’`}
         image={`${siteUrl}${image}`}
-        pathname={siteUrl}
+        pathName={siteUrl}
         siteLanguage={siteLanguage}
         siteLocale={siteLocale}
         twitter={twitter}
@@ -75,7 +75,7 @@ const IndexPage = () => {
             sx={{
               height: "20rem",
               width: "20rem",
-              borderRadius: "20%",
+              borderRadius: "3rem",
               overflow: "hidden",
               "@media screen and (max-width: 64em)": {
                 maxWidth: "15rem",
@@ -85,7 +85,8 @@ const IndexPage = () => {
             }}
           >
             <StaticImage
-              src='../images/portfolio_about.jpg'
+              sx={{  filter: 'grayscale(100%)'}}
+              src='../images/rj.jpg'
               alt='Ryan Jeon'/>
           </div>
           <div

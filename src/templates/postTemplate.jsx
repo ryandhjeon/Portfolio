@@ -4,7 +4,7 @@ import { jsx } from 'theme-ui';
 
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { Helmet } from 'react-helmet';
 import kebabCase from 'lodash/kebabCase';
@@ -12,8 +12,6 @@ import kebabCase from 'lodash/kebabCase';
 import { useSiteMetadata } from '../utils/useSiteMetadata';
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
-import { Share } from '../components/share';
-
 
 const Template = ({ data, pageContext }) => {
   const { author } = useSiteMetadata();
@@ -180,7 +178,6 @@ const Template = ({ data, pageContext }) => {
             textAlign: "center",
           }}
         >
-          {/*<span sx={{ textTransform: "uppercase" }}>Insights de Ryan</span>*/}
           <div
             sx={{
               display: "grid",
@@ -302,8 +299,12 @@ const Template = ({ data, pageContext }) => {
               px: "5",
               textDecoration: "none",
               "&:hover": {
-                transition: "all 300ms",
-                bg: "#393939",
+                transition: "all 500ms",
+                border: "1px solid #FEDD00",
+                '>span': {
+                  transition: "all 500ms",
+                  opacity: 1
+                }
               },
             }}>
             <span

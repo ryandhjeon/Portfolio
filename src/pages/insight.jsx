@@ -1,19 +1,19 @@
 /** @jsx jsx */
 import React from 'react';
-import { jsx, Image } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import SEO from 'react-seo-component';
 
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 import { useSiteMetadata } from '../utils/useSiteMetadata';
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const query = graphql`
   {
     allMdx(
       sort: {order: DESC, fields: [frontmatter___date]}
-      filter: {frontmatter: {published: {eq: true}}}
+      filter: {frontmatter: {published: {eq: true}, insight: {eq: true}}}
     ) {
       group(field: frontmatter___tags) {
         fieldValue
@@ -84,13 +84,19 @@ const Insight = () => {
                 sx={{
                   textAlign: "center",
                   textDecoration: "none",
-                  // opacity: "0.5",
-                  // "&:hover": {
-                  //   opacity: 1,
-                  //   transition: "all 500ms",
-                  // },
-                  "@media screen and (max-width: 40em)": {
+                  '>div': {
+                    transition: "all 700ms",
+                    opacity: "0.7",
+                    "@media screen and (max-width: 40em)": {
+                      opacity: 1,
+                    },
+                  },
+                  "&:hover": {
                     opacity: 1,
+                    '>div': {
+                      transition: "all 700ms",
+                      opacity: 1,
+                    }
                   },
                 }}
               >
@@ -99,24 +105,14 @@ const Insight = () => {
                     image={pathToImage}
                     alt={post.frontmatter.title}
                     sx={{
-                      // width: '100%'
-                      opacity: "0.5",
                       height: "14rem",
                       mb: 3,
-                      "&:hover": {
-                        opacity: 1,
-                        transition: "all 700ms",
-                      },
-                      "@media screen and (max-width: 40em)": {
-                        opacity: 1,
-                      },
                     }}
                   />
                 ) : null}
                 <div
                   sx={{
                     fontSize: "12px",
-                    opacity: "0.8",
                     color: "schoolBus",
                     textTransform: "Uppercase",
                     mt: 4,
@@ -129,7 +125,7 @@ const Insight = () => {
                     fontSize: "5",
                     mt: 2,
                     color: "pampas",
-                    opacity: "0.9",
+                    opacity: '0.9 !important'
                   }}
                 >
                   {post.frontmatter.title}
@@ -143,8 +139,7 @@ const Insight = () => {
                   }}
                 >
                   <div>{post.frontmatter.date}</div>
-                  <div sx={{ mt: 2,}}>{author}</div>
-                  {/*<p> • {post.timeToRead} min read</p>*/}
+                  <div sx={{ mt: 2,}}>{author} • {post.timeToRead} min read</div>
                 </div>
               </Link>
             </div>
@@ -163,7 +158,7 @@ const Insight = () => {
         title={title}
         description={description || `nothin’`}
         image={`${siteUrl}${image}`}
-        pathname={siteUrl}
+        pathName={siteUrl}
         siteLanguage={siteLanguage}
         siteLocale={siteLocale}
         twitter={twitter}
