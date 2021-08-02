@@ -78,9 +78,10 @@ const IndexPage = () => {
               borderRadius: "3rem",
               overflow: "hidden",
               "@media screen and (max-width: 64em)": {
+                borderRadius: "3rem",
                 maxWidth: "15rem",
                 maxHeight: "15rem",
-                mb: "4",
+                my: "5",
               },
             }}
           >
