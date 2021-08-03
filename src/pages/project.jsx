@@ -42,11 +42,11 @@ const projectQuery = graphql`
                 }
             }
         }
+        
     }
 `
 
 const Projects = () => {
-  const { author, description, image, siteUrl, siteLanguage, siteLocale, title, twitter } = useSiteMetadata();
   const data = useStaticQuery(projectQuery);
   const allProjects = data.allMdx.edges;
 
