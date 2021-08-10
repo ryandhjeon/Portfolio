@@ -3,6 +3,7 @@
 import React from 'react'
 import { jsx } from 'theme-ui'
 import { StaticImage } from "gatsby-plugin-image"
+import { useStaticQuery, graphql } from "gatsby"
 
 import SEO from '../components/seo';
 import Layout from '../components/layout';
@@ -13,6 +14,18 @@ import { FaRegEnvelope } from "react-icons/fa"
 const IndexPage = () => {
   const { description, personalEmail, title, image, siteUrl, siteLanguage, siteLocale, twitter } = useSiteMetadata();
   const mailToUrl = `mailto:${personalEmail}?Subject=Hello`;
+
+  const data = useStaticQuery(graphql`
+      {
+          allFile(filter: { extension: { eq: "pdf" } }) {
+              edges {
+                  node {
+                      publicURL
+                  }
+              }
+          }
+      }
+  `)
 
   return (
     <Layout
@@ -129,12 +142,20 @@ const IndexPage = () => {
                   mr: 3,
                   textDecoration: 'none',
                 }}><FaRegEnvelope sx={{ fontSize: 1 }}/> djeon@bgsu.edu</a>
-              <a
-                sx={{
-                  border: "1px solid black",
-                  p: 2,
-                  textDecoration: 'none',
-                }}>CV(PDF)</a>
+                {data.allFile.edges.map((file, index) => {
+                  return (
+                    <a
+                      href={file.node.publicURL}
+                      download
+                      sx={{
+                        border: "1px solid black",
+                        p: 2,
+                        textDecoration: 'none',
+                      }}>
+                      CV [PDF]
+                    </a>
+                  )
+                })}
             </p>
           </div>
         </div>
