@@ -1,3 +1,4 @@
+/* eslint-disable */
 /** @jsx jsx */
 import React from 'react';
 import { jsx, Box } from 'theme-ui';
@@ -49,6 +50,7 @@ const projectQuery = graphql`
 const Projects = () => {
   const data = useStaticQuery(projectQuery);
   const allProjects = data.allMdx.edges;
+  const { author } = useSiteMetadata();
 
   const PostCard = () => (
     <>
@@ -101,10 +103,10 @@ const Projects = () => {
                   textAlign: "left",
                   p: "2",
                 }}>
-                  <div sx={{ fontWeight: "lg", mb: "2" }}>{project.frontmatter.title}</div>
-                  <div sx={{}}>{project.frontmatter.author}</div>
-                  <div sx={{}}>{project.frontmatter.date}</div>
-                  <div><span sx={{ fontWeight: "md" }}>Brief description:</span> {project.frontmatter.description}</div>
+                  <div sx={{ fontSize: '4', fontWeight: "md", mb: "2" }}>{project.frontmatter.title}</div>
+                  <div sx={{ fontWeight: "md" }}>{author} · {project.frontmatter.date}</div>
+                  <div sx={{ mb: "2" }}></div>
+                  <div>{project.frontmatter.description}</div>
                 </div>
               </Link>
             </Box>
@@ -112,7 +114,6 @@ const Projects = () => {
         })}
     </>
   )
-
 
   return (
     <Layout>

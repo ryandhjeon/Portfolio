@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default {
   colors: {
     gullGray: '#92A3AB',

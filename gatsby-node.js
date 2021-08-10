@@ -63,6 +63,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
 
   const postTemplate = path.resolve('src/templates/postTemplate.jsx');
+  const projectTemplate = path.resolve('src/templates/projectTemplate.jsx');
   const tagTemplate = path.resolve('src/templates/tagsTemplate.jsx');
 
   const result = await graphql(`
@@ -108,6 +109,40 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
+      projectsRemark: allMdx(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        filter: {frontmatter: {project: {eq: true}}}
+      ) {
+        totalCount
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              path
+              date(formatString: "MM DD, YYYY")
+              tags
+            }
+          }
+          next {
+            frontmatter {
+              path
+              title
+              description
+            }
+          }
+          previous {
+            frontmatter {
+              path
+              title
+              description
+            }
+          }
+        }
+      }
     }
   `);
 
@@ -122,6 +157,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createPage({
       path: node.frontmatter.path,
       component: postTemplate,
+      context: {
+        slug: node.fields.slug,
+        next,
+        previous,
+      },
+    });
+  });
+
+  const projects = result.data.projectsRemark.edges;
+
+  projects.forEach(({ node, next, previous }, index) => {
+    createPage({
+      path: node.frontmatter.path,
+      component: projectTemplate,
       context: {
         slug: node.fields.slug,
         next,

@@ -13,7 +13,7 @@ const siteMetadata = {
   twitter: `ryandhjeon`,
   linkedIn: `ryandhjeon`,
   github : `ryandhjeon`,
-  image: '',
+  image: 'https://raw.githubusercontent.com/ryandhjeon/portfolio/master/src/',
 }
 
 module.exports = {
@@ -22,6 +22,7 @@ module.exports = {
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,

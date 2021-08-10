@@ -1,3 +1,4 @@
+/* eslint-disable */
 /** @jsx jsx */
 import React from 'react';
 import { jsx } from 'theme-ui';
@@ -57,7 +58,7 @@ const Insight = () => {
         mx: 'auto',
         maxWidth: '1040px',
         gridGap: 4,
-        '@media screen and (min-width: 40em)': {
+        '@media screen and (min-width: 56em)': {
           gridTemplateColumns: `repeat(2, 1fr)`,
         },
         '@media screen and (min-width: 64em)': {

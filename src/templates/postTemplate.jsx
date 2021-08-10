@@ -1,3 +1,4 @@
+/* eslint-disable */
 /** @jsx jsx */
 import React from 'react';
 import { jsx } from 'theme-ui';
@@ -185,11 +186,11 @@ const Template = ({ data, pageContext }) => {
               mx: "auto",
               py: 5,
               gridGap: 1,
-              "@media screen and (max-width: 40em)": {
+              "@media screen and (max-width: 56em)": {
                 width: "100%",
                 gridTemplateColumns: `repeat(1, 1fr)`,
               },
-              "@media screen and (min-width: 40em)": {
+              "@media screen and (min-width: 56em)": {
                 gridTemplateColumns: `repeat(2, 1fr)`,
               },
             }}
