@@ -8,11 +8,18 @@ description: A post showing MDX in action
 path: /project/aces-portal
 cover: ./cover.jpg
 tags: ["Angular", "Javascript", "Redux"]
+embeddedImagesLocal:
+  - 'images/1.jpg'
+  - 'images/2.jpg'
 ---
 
-import MdxSwiper from '../../components/swiper'
+import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 This is a post showing MDX in action. This starter now comes with MDX out-of-the-box!
 
+<GatsbyImage
+  alt='Sam in a destroyed mall'
+  image={getImage(props.localImages[0])}
+/>
 
-<MdxSwiper imgUrl="./images/1.PNG"/>
+

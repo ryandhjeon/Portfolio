@@ -117,7 +117,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
             maxWidth: "700px",
             mx: "auto",
           }}>
-            <MDXRenderer>{post.body}</MDXRenderer>
+            <MDXRenderer localImages={post.frontmatter.embeddedImagesLocal}>{post.body}</MDXRenderer>
           </div>
 
           {/*<div*/}
@@ -331,6 +331,14 @@ export const projectQuery = graphql`
                             layout: FULL_WIDTH
                             placeholder: BLURRED
                             transformOptions: {grayscale: true}
+                        )
+                    }
+                }
+                embeddedImagesLocal {
+                    childImageSharp {
+                        gatsbyImageData(
+                            placeholder: BLURRED, 
+                            layout: FULL_WIDTH,
                         )
                     }
                 }

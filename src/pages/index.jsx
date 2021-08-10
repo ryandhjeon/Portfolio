@@ -58,39 +58,34 @@ const IndexPage = () => {
         sx={{
           bg: "pampas",
           color: "woodSmoke",
+          "@media screen and (max-width: 64em)": {
+            justifyContent: "center",
+          },
         }}
       >
-        <div
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            alignItems: "center",
-            maxWidth: "1040px",
-            "@media screen and (max-width: 64em)": {
-              justifyContent: "center",
-            },
-          }}
-        >
-          <div
+        <div sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
+          alignItems: "center",
+          maxWidth: "1040px",
+          "@media screen and (max-width: 64em)": {
+            justifyContent: "center",
+          },
+        }}>
+          <StaticImage
             sx={{
+              filter: 'grayscale(100%)',
               height: "20rem",
               width: "20rem",
-              borderRadius: "3rem",
-              overflow: "hidden",
-              "@media screen and (max-width: 64em)": {
-                borderRadius: "3rem",
+              borderRadius: "10%",
+              "@media screen and (max-width: 56em)": {
                 maxWidth: "15rem",
                 maxHeight: "15rem",
-                my: "5",
-              },
+              }
             }}
-          >
-            <StaticImage
-              sx={{  filter: 'grayscale(100%)'}}
-              src='../images/rj.jpg'
-              alt='Ryan Jeon'/>
-          </div>
+            src='../images/rj.jpg'
+            alt='Ryan Jeon'/>
           <div
             sx={{
               width: "50%",
@@ -104,10 +99,13 @@ const IndexPage = () => {
                 },
               },
               "@media screen and (max-width: 64em)": {
+                // mt: 4,
                 width: "80%",
               },
               "@media screen and (max-width: 40em)": {
+                mt: 4,
                 width: "100%",
+                fontSize: '2',
               },
             }}
           >
