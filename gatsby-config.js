@@ -19,6 +19,7 @@ const siteMetadata = {
 module.exports = {
   siteMetadata: siteMetadata,
   plugins: [
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
