@@ -33,9 +33,10 @@ const projectQuery = graphql`
                             id
                             childImageSharp {
                                 gatsbyImageData(
-                                    layout: FULL_WIDTH
-                                    placeholder: BLURRED
-                                    transformOptions: {grayscale: true}
+                                    layout: FULL_WIDTH,
+                                    placeholder: BLURRED,
+                                    transformOptions: {grayscale: true},
+                                    quality: 50
                                 )
                             }
                         }
@@ -50,7 +51,6 @@ const projectQuery = graphql`
 const Projects = () => {
   const data = useStaticQuery(projectQuery);
   const allProjects = data.allMdx.edges;
-  const { author } = useSiteMetadata();
 
   const PostCard = () => (
     <>
@@ -65,6 +65,7 @@ const Projects = () => {
                 my: "5",
                 bg: "pampas",
                 "@media screen and (min-width: 40em)": {
+                  borderRadius: '0 20px 20px 0',
                   my: "4",
                 }
               }}
@@ -73,40 +74,42 @@ const Projects = () => {
                 to={project.frontmatter.path}
                 sx={{
                   display: "flex",
-                  flexWrap: "wrap",
                   textDecoration: "none",
                   color: "woodSmoke",
                   fontSize: "1",
-                  "@media screen and (min-width: 40em)": {
-                    ":hover": {
-                      transition: "400ms",
-                      left: 0,
-                      borderRight: "2rem solid #FEDD00",
-                    },
+                  opacity: 0.9,
+                  "&:hover": {
+                    opacity: 1,
                   },
+                  "@media screen and (max-width: 40em)": {
+                    flexWrap: "wrap",
+                  }
                 }}>
                 {!!project.frontmatter.cover ? (
                   <GatsbyImage
                     image={pathToImage}
                     alt={project.frontmatter.title}
                     sx={{
-                      height: "100%",
-                      width: "12rem",
-                      "@media screen and (max-width: 40em)": {
-                        height: "100%",
-                        width: "100%",
+                      // height: '30%',
+                      width: '100%',
+                      "@media screen and (min-width: 40em)": {
+                        flex: '0 0 12rem',
                       },
                     }}
                   />
                 ) : null}
                 <div sx={{
-                  textAlign: "left",
-                  p: "2",
+                  flex: 1,
+                  px: "2",
+                  py: "2",
+                  "@media screen and (max-width: 40em)": {
+                    px: "3",
+                    py: "3",
+                  },
                 }}>
-                  <div sx={{ fontSize: '4', fontWeight: "md", mb: "2" }}>{project.frontmatter.title}</div>
-                  <div sx={{ fontWeight: "md" }}>{author} · {project.frontmatter.date}</div>
-                  <div sx={{ mb: "2" }}></div>
-                  <div>{project.frontmatter.description}</div>
+                  <div sx={{ fontSize: '4', fontWeight: "lg", mb: "2", textTransform: "Uppercase" }}>{project.frontmatter.title}</div>
+                  <div sx={{ fontWeight: "md", mb: "2" }}>{project.frontmatter.date} · {project.frontmatter.author}</div>
+                  <div sx={{ fontWeight: "md" }}>{project.frontmatter.description}</div>
                 </div>
               </Link>
             </Box>
@@ -120,20 +123,31 @@ const Projects = () => {
       <SEO title="Project"/>
       <Wrapper
         sx={{
-          textAlign: "center",
-          fontSize: "3",
-          fontWeight: "sm",
-          maxWidth: "40em",
+          maxWidth: "56em",
           mx: "auto",
           my: 6,
         }}
       >
-        <p sx={{ lineHeight: "2rem" }}>
-          "You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust
-          that the dots will somehow connect in your future. You have to trust in something - your gut, destiny, life,
-          karma, whatever. This approach has never let me down, and it has made all the difference in my life."
-        </p>
-        <i>- Steve Jobs</i>
+        <div
+          sx={{
+            mx: "auto",
+            mb: "80px",
+            textAlign: "center",
+            fontSize: "3",
+            fontWeight: "sm",
+            maxWidth: "40em",
+          }}>
+          <h1 sx={{ fontWeight: "md" }}>projets intéressants</h1>
+          <p
+            sx={{
+              lineHeight: "2rem",
+            }}>
+            "You can't connect the dots looking forward; you can only connect them looking backwards. So you have to
+            trust
+            that the dots will somehow connect in your future."
+          </p>
+          <i>- Steve Jobs</i>
+        </div>
         <PostCard/>
       </Wrapper>
     </Layout>

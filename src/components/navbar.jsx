@@ -47,7 +47,7 @@ const MenuLinks = () => {
 };
 
 export const Navbar = ({ siteTitle }) => {
-  const [nav, showNav] = useState(false);
+  const [nav, showNav] = useState(0);
 
   useEffect(() => {
     const html = document.querySelector('html')
@@ -72,7 +72,7 @@ export const Navbar = ({ siteTitle }) => {
           </Link>
           <MenuLinks />
           <button
-            nav={nav}
+            // nav={nav}
             onClick={() => showNav(!nav)}
             sx={{
               display: 'flex',
@@ -93,7 +93,6 @@ export const Navbar = ({ siteTitle }) => {
                 background: 'white',
                 borderRadius: '5px',
                 transformOrigin: '1px',
-                // position: 'relative',
                 transition: 'transform 300ms, opacity 300ms',
                 ':first-of-type': {
                   transform: $nav => nav ? "rotate(45deg)" : "rotate(0deg) + console.log('TEST')"
@@ -116,7 +115,7 @@ export const Navbar = ({ siteTitle }) => {
             <div />
           </button>
           <nav
-            nav={nav}
+            // nav={nav}
             sx={{
               position: 'fixed',
               top: 0,

@@ -2,7 +2,7 @@ require("dotenv").config()
 
 const siteMetadata = {
   title: `Maison De Ryan`,
-  description: `Ryan's daily note`,
+  description: `Ryan's portfolio`,
   author: `Ryan Jeon`,
   schoolEmail: `djeon@bgsu.edu`,
   personalEmail: `ryandhjeon@gmail.com`,
@@ -13,7 +13,7 @@ const siteMetadata = {
   twitter: `ryandhjeon`,
   linkedIn: `ryandhjeon`,
   github : `ryandhjeon`,
-  image: 'https://raw.githubusercontent.com/ryandhjeon/portfolio/master/src/',
+  image: ``
 }
 
 module.exports = {
@@ -62,16 +62,16 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'insight',
+        name: "insight",
         path: `${__dirname}/src/posts`,
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'project',
+        name: "project",
         path: `${__dirname}/src/projects`,
       },
     },

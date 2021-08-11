@@ -33,9 +33,10 @@ const query = graphql`
               id
               childImageSharp {
                 gatsbyImageData(
-                  layout: FULL_WIDTH
-                  placeholder: BLURRED
-                  transformOptions: {grayscale: true}
+                  layout: FULL_WIDTH,
+                  placeholder: BLURRED,
+                  transformOptions: {grayscale: true},
+                  quality: 50,
                 )
               }
             }
@@ -173,7 +174,7 @@ const Insight = () => {
             fontWeight: 'sm'
           }}
         >
-          <h1 sx={{ fontWeight: 'md'}}>Idea playground</h1>
+          <h1 sx={{ fontWeight: 'md'}}>Insights</h1>
           <p>Personal insights on the data science, programming, business strategy and branding</p>
         </div>
         <PostCard />

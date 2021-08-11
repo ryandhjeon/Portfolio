@@ -337,9 +337,10 @@ export const postQuery = graphql`
               cover {
                   childImageSharp {
                       gatsbyImageData(
-                          layout: FULL_WIDTH
-                          placeholder: BLURRED
-                          transformOptions: {grayscale: true}
+                          layout: FULL_WIDTH,
+                          placeholder: BLURRED,
+                          transformOptions: {grayscale: true},
+                          quality: 50
                       )
                   }
               }

@@ -191,5 +191,3 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
   });
 };
-
-// filter: { frontmatter: { published: { eq: true } } }

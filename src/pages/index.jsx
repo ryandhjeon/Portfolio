@@ -44,27 +44,28 @@ const IndexPage = () => {
       />
       <Container
         sx={{
-          fontSize: "14",
-          fontWeight: 'xs',
           textAlign: "center",
           justifyContent: "center",
-          letterSpacing: 10,
-          "@media screen and (max-width: 64em)": {
-            fontSize: "12",
-            fontWeight: 'xs',
-            letterSpacing: 5,
-            height: "300px",
-          },
-          "@media screen and (max-width: 40em)": {
-            fontSize: "7",
-            fontWeight: 'xs',
-            letterSpacing: 5,
-            height: "300px",
+          "@media screen and (max-width: 56em)": {
+            height: "200px",
           },
         }}
       >
-        <p>
-          R Y A N<span>&nbsp;</span> J E O N
+        <p
+          sx={{
+            fontSize: "14",
+            fontWeight: "xs",
+            letterSpacing: 30,
+            "@media screen and (max-width: 64em)": {
+              fontSize: "12",
+              letterSpacing: 20,
+            },
+            "@media screen and (max-width: 40em)": {
+              fontSize: "7",
+              letterSpacing: 10,
+            },
+          }}>
+          RYAN JEON
         </p>
       </Container>
       <Container
@@ -86,19 +87,23 @@ const IndexPage = () => {
             justifyContent: "center",
           },
         }}>
-          <StaticImage
-            sx={{
-              filter: 'grayscale(100%)',
-              height: "20rem",
-              width: "20rem",
-              borderRadius: "10%",
-              "@media screen and (max-width: 56em)": {
-                maxWidth: "15rem",
-                maxHeight: "15rem",
-              }
-            }}
-            src='../images/rj.jpg'
-            alt='Ryan Jeon'/>
+          <div>
+            <StaticImage
+              sx={{
+                filter: "grayscale(100%)",
+                height: "20rem",
+                width: "20rem",
+                borderRadius: "10%",
+                "@media screen and (max-width: 56em)": {
+                  maxWidth: "15rem",
+                  maxHeight: "15rem",
+                },
+              }}
+              src='../images/rj.jpg'
+              alt='Ryan Jeon'
+              quality={50}
+            />
+          </div>
           <div
             sx={{
               width: "50%",
@@ -118,11 +123,11 @@ const IndexPage = () => {
               "@media screen and (max-width: 40em)": {
                 mt: 4,
                 width: "100%",
-                fontSize: '2',
+                fontSize: "2",
               },
             }}
           >
-            <h3>Welcome!</h3> I am a Ph.D. student in Data Science at <a
+            <h4>Welcome!</h4> I am a Ph.D. student in Data Science at <a
             href="https://www.bgsu.edu/academics/graduate/data-science-phd.html" target='blank'>Bowling Green State
             University</a>.
             My research interests are in the areas of Natural Language Processing, and
@@ -140,22 +145,22 @@ const IndexPage = () => {
                   border: "1px solid black",
                   p: 2,
                   mr: 3,
-                  textDecoration: 'none',
+                  textDecoration: "none",
                 }}><FaRegEnvelope sx={{ fontSize: 1 }}/> djeon@bgsu.edu</a>
-                {data.allFile.edges.map((file, index) => {
-                  return (
-                    <a
-                      href={file.node.publicURL}
-                      download
-                      sx={{
-                        border: "1px solid black",
-                        p: 2,
-                        textDecoration: 'none',
-                      }}>
-                      CV [PDF]
-                    </a>
-                  )
-                })}
+              {data.allFile.edges.map((file, index) => {
+                return (
+                  <a
+                    href={file.node.publicURL}
+                    download
+                    sx={{
+                      border: "1px solid black",
+                      p: 2,
+                      textDecoration: "none",
+                    }}>
+                    CV [PDF]
+                  </a>
+                )
+              })}
             </p>
           </div>
         </div>

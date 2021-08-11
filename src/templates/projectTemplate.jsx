@@ -6,21 +6,17 @@ import { jsx } from 'theme-ui';
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-
 import { Helmet } from 'react-helmet';
-import kebabCase from 'lodash/kebabCase';
 
-import { useSiteMetadata } from '../utils/useSiteMetadata';
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
+import { useSiteMetadata } from '../utils/useSiteMetadata';
 
 const ProjectTemplate = ({ data, pageContext }) => {
   const { author } = useSiteMetadata();
   const { mdx: post } = data;
   const pathToImage = getImage(post.frontmatter.cover)
   const { previous, next } = pageContext;
-
-  console.log(post)
 
   return (
     <Layout>
@@ -36,50 +32,51 @@ const ProjectTemplate = ({ data, pageContext }) => {
         <Helmet title={`${post.frontmatter.title}`}/>
         <div
           sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
             textAlign: "center",
-            letterSpacing: "0.1rem",
-            textTransform: "Uppercase",
+            my: 6,
           }}
         >
           <div
             sx={{
-              my: 6,
+              textTransform: "Uppercase",
+              fontSize: "7",
+              mb: "4",
+              "@media screen and (max-width: 56em)": {
+                fontSize: "6",
+              },
             }}
           >
-            <div
+            {post.frontmatter.title}
+          </div>
+          <div
+            sx={{
+              fontSize: "1",
+              opacity: "0.8",
+              mb: "5",
+              width: "70%",
+            }}
+          >
+            {post.frontmatter.description}
+          </div>
+          <div
+            sx={{
+              fontSize: "1",
+              color: "pampas",
+              opacity: "0.8",
+            }}
+          >
+            <Link
+              to={"/"}
               sx={{
-                fontSize: "6",
-                mb: "2",
-              }}
-            >
-              {post.frontmatter.title}
-            </div>
-            <div
-              sx={{
-                fontSize: "0",
-                opacity: "0.8",
-                mb: "5",
-              }}
-            >
-              - {post.frontmatter.description} -
-            </div>
-            <div
-              sx={{
-                fontSize: "0",
                 color: "pampas",
-                opacity: "0.8",
-              }}
-            >
-              <Link
-                to={"/"}
-                sx={{
-                  color: "pampas",
-                  textDecoration: "none",
-                  "&hover": {
-                    color: "schoolBus",
-                  },
-                }}>{author}</Link> · {post.frontmatter.date}
-            </div>
+                textDecoration: "none",
+                "&hover": {
+                  color: "schoolBus",
+                },
+              }}>{author}</Link> · {post.frontmatter.date}
           </div>
         </div>
         {!!post.frontmatter.cover ? (
@@ -97,20 +94,11 @@ const ProjectTemplate = ({ data, pageContext }) => {
             }}
           />
         ) : null}
-        {/*<Divider*/}
-        {/*  sx={{*/}
-        {/*    opacity: '0.3',*/}
-        {/*    mb: 4,*/}
-        {/*  }}*/}
-        {/*/>*/}
         <Wrapper
           sx={{
             color: "woodSmoke",
             bg: "pampas",
             py: 6,
-            // '@media screen and (max-width: 56em)': {
-            //   maxWidth: '100%',
-            // },
           }}
         >
           <div sx={{
@@ -293,10 +281,10 @@ const ProjectTemplate = ({ data, pageContext }) => {
               "&:hover": {
                 transition: "all 500ms",
                 border: "1px solid #FEDD00",
-                '>span': {
+                ">span": {
                   transition: "all 500ms",
-                  opacity: 1
-                }
+                  opacity: 1,
+                },
               },
             }}>
             <span
@@ -328,17 +316,18 @@ export const projectQuery = graphql`
                 cover {
                     childImageSharp {
                         gatsbyImageData(
-                            layout: FULL_WIDTH
-                            placeholder: BLURRED
-                            transformOptions: {grayscale: true}
+                            layout: FULL_WIDTH,
+                            placeholder: BLURRED,
+                            transformOptions: {grayscale: true},
+                            quality: 50
                         )
                     }
                 }
                 embeddedImagesLocal {
                     childImageSharp {
                         gatsbyImageData(
-                            placeholder: BLURRED, 
                             layout: FULL_WIDTH,
+                            placeholder: BLURRED,
                         )
                     }
                 }
