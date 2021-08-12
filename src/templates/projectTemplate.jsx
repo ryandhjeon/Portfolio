@@ -11,6 +11,7 @@ import { Helmet } from 'react-helmet';
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 import { useSiteMetadata } from '../utils/useSiteMetadata';
+import ScrollTop from "../components/ScrollTop"
 
 const ProjectTemplate = ({ data, pageContext }) => {
   const { author } = useSiteMetadata();
@@ -23,13 +24,13 @@ const ProjectTemplate = ({ data, pageContext }) => {
       <div
         sx={{
           mt: 7,
-          mb: 6,
+          // mb: 6,
           "@media screen and (max-width: 40em)": {
-            my: 6,
+            mt: 6,
           },
         }}
       >
-        <Helmet title={`${post.frontmatter.title}`}/>
+        <Helmet title={`Project: ${post.frontmatter.title}`}/>
         <div
           sx={{
             display: "flex",
@@ -53,10 +54,14 @@ const ProjectTemplate = ({ data, pageContext }) => {
           </div>
           <div
             sx={{
-              fontSize: "1",
-              opacity: "0.8",
+              fontSize: "2",
+              opacity: "0.6",
               mb: "5",
-              width: "70%",
+              width: "50%",
+              lineHeight: "1.5",
+              "@media screen and (max-width: 56em)": {
+                width: "70%",
+              },
             }}
           >
             {post.frontmatter.description}

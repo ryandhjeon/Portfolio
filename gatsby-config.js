@@ -31,13 +31,24 @@ module.exports = {
         name: `Maison de Ryan`,
         short_name: `Ryan Jeon`,
         start_url: `/`,
-        icon: `src/images/memoji_white.jpeg`,
+        icon: `src/images/favicon.png`,
       },
     },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-page-progress",
+      options: {
+        includePaths: [{ regex: "^/insight/(.*)" }, { regex: "^/project/(.*)" }],
+        height: 3,
+        prependToBody: false,
+        color: `#FEDD00`,
+        footerHeight: 500,
+        headerHeight: 0,
       },
     },
     {

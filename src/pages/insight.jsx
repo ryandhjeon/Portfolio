@@ -9,6 +9,7 @@ import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 import { useSiteMetadata } from '../utils/useSiteMetadata';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Helmet } from "react-helmet"
 
 const query = graphql`
   {
@@ -157,7 +158,7 @@ const Insight = () => {
       }}
     >
       <SEO
-        title={title}
+        title="Insight"
         description={description || `nothin’`}
         image={`${siteUrl}${image}`}
         pathName={siteUrl}
@@ -169,7 +170,7 @@ const Insight = () => {
         <div
           sx={{
             textAlign: 'center',
-            my: 6,
+            my: "10em",
             fontSize: '3',
             fontWeight: 'sm'
           }}

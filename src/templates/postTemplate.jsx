@@ -29,7 +29,7 @@ const Template = ({ data, pageContext }) => {
           mt: 6,
         }}
       >
-        <Helmet title={`${post.frontmatter.title}`}/>
+        <Helmet title={`Insight: ${post.frontmatter.title}`}/>
         <div
           sx={{
             textAlign: "center",

@@ -31,8 +31,22 @@ export default {
     bold: 800,
   },
   styles: {
+    'p': {
+      fontSize: '3',
+      lineHeight: '1.5',
+    },
     'a': {
       color: 'bgsuBrown !important',
+    },
+    'h1': {
+      fontSize: 9,
+      mt: 3,
+    },
+    'h2': {
+      mt: 6,
+    },
+    'h3': {
+      mt: 5,
     }
   },
   layout: {

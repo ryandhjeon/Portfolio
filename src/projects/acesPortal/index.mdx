@@ -9,18 +9,52 @@ path: /project/aces-portal
 cover: ./cover.jpg
 tags: ["Angular", "Javascript", "Redux"]
 embeddedImagesLocal:
+- 'images/0.jpg'
 - 'images/1.jpg'
 - 'images/2.jpg'
 - 'images/3.jpg'
+- 'images/4.jpg'
+- 'images/KeysFlowChart.jpg'
+- 'images/KeysUseCase.jpg'
+- 'images/SpacesFlowChart.jpg'
+- 'images/SpacesUseCase.jpg'
 ---
 
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
+import Caption from '/src/components/caption'
 
-This is a post showing MDX in action. This starter now comes with MDX out-of-the-box!
+__ACES Portal application__ started as a main project for College of Animal Sciences to efficiently manage the keys and spaces in the building.
+Previously, the entire process was done with `paper`, which was extremely inefficient and time-consuming.
+The application provided an easy way to make requests and manage all the information in one place for all the users, including key managers, staffs, faculties, and students.
 
-<GatsbyImage
-  alt='Sam in a destroyed mall'
-  image={getImage(props.localImages[0])}
-/>
+## 1. Tasks
+
+Before the development, the first step was to plan out the key process of putting key or space requests.
+
+### 1.1 Keys
+
+<GatsbyImage alt='Keys flow chart' image={getImage(props.localImages[5])}/>
+<Caption fig="x" message="Keys flow chart"/>
+
+<GatsbyImage alt='Aces portal main page' image={getImage(props.localImages[6])}/>
+<Caption fig="x" message="Aces portal main page"/>
+
+## Development process
+
+## Key takeaway
+
+## Result
 
 
+
+<GatsbyImage alt='Aces portal main page' image={getImage(props.localImages[0])}/>
+<Caption fig="x" message="Main page for the ACES Portal"/>
+
+<GatsbyImage alt='Aces portal main page' image={getImage(props.localImages[1])}/>
+<Caption fig="x" message="Main page for the ACES Portal"/>
+
+<GatsbyImage alt='Aces portal main page' image={getImage(props.localImages[2])}/>
+<Caption fig="x" message="Main page for the ACES Portal"/>
+
+<GatsbyImage alt='Aces portal main page' image={getImage(props.localImages[3])}/>
+<Caption fig="x" message="Main page for the ACES Portal"/>

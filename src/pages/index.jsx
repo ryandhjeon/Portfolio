@@ -62,7 +62,7 @@ const IndexPage = () => {
             },
             "@media screen and (max-width: 40em)": {
               fontSize: "7",
-              letterSpacing: 10,
+              letterSpacing: 16,
             },
           }}>
           RYAN JEON
@@ -87,17 +87,25 @@ const IndexPage = () => {
             justifyContent: "center",
           },
         }}>
-          <div>
+          <div
+          sx={{
+            overflow: 'hidden',
+            maxWidth: "20rem",
+            maxHeight: "20rem",
+            borderRadius: "10%",
+            position: 'relative',
+            "@media screen and (max-width: 56em)": {
+              maxWidth: "15rem",
+              maxHeight: "15rem",
+            },
+          }}>
             <StaticImage
               sx={{
                 filter: "grayscale(100%)",
-                height: "20rem",
-                width: "20rem",
-                borderRadius: "10%",
-                "@media screen and (max-width: 56em)": {
-                  maxWidth: "15rem",
-                  maxHeight: "15rem",
-                },
+                display: "block",
+                width: "100%",
+                height: 'auto',
+                bottom: "0",
               }}
               src='../images/rj.jpg'
               alt='Ryan Jeon'
@@ -117,7 +125,7 @@ const IndexPage = () => {
                 },
               },
               "@media screen and (max-width: 64em)": {
-                // mt: 4,
+                mt: 4,
                 width: "80%",
               },
               "@media screen and (max-width: 40em)": {
@@ -157,7 +165,7 @@ const IndexPage = () => {
                       p: 2,
                       textDecoration: "none",
                     }}>
-                    CV [PDF]
+                    CV (PDF)
                   </a>
                 )
               })}

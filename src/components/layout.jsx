@@ -7,6 +7,7 @@ import { Navbar } from './navbar';
 import Footer from './footer';
 import { useSiteMetadata } from '../utils/useSiteMetadata';
 import "../styles/index.css"
+import ScrollTop from "./scrollTop"
 
 const Layout = ({ children }) => {
   const { title } = useSiteMetadata();
@@ -17,6 +18,7 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <Footer />
+      <ScrollTop showBelow={50} />
     </div>
   );
 };

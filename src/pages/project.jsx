@@ -78,6 +78,7 @@ const Projects = () => {
                   color: "woodSmoke",
                   fontSize: "1",
                   opacity: 0.9,
+                  transition: "all 700ms",
                   "&:hover": {
                     opacity: 1,
                   },
@@ -131,7 +132,7 @@ const Projects = () => {
         <div
           sx={{
             mx: "auto",
-            mb: "80px",
+            my: "10em",
             textAlign: "center",
             fontSize: "3",
             fontWeight: "sm",
