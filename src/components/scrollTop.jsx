@@ -4,7 +4,7 @@ import React, { useState, useEffect }  from 'react';
 import { jsx } from 'theme-ui';
 import { CgArrowUpR } from "react-icons/cg"
 
-const ScrollTop = ({ showBelow }) => {
+export const ScrollTop = ({ showBelow }) => {
 
   const [show, setShow] = useState(!showBelow)
 
@@ -53,4 +53,4 @@ const ScrollTop = ({ showBelow }) => {
   )
 }
 
-export default ScrollTop
+// export default ScrollTop

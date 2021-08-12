@@ -4,7 +4,7 @@ import React from 'react';
 import { jsx } from 'theme-ui';
 import { Link } from 'gatsby';
 
-const Footer = () => (
+export const Footer = () => (
   <footer
     sx={{
       variant: 'layout.footer',
@@ -61,4 +61,4 @@ const Footer = () => (
   </footer>
 );
 
-export default Footer;
+// export default Footer;

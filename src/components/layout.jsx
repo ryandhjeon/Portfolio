@@ -3,11 +3,13 @@
 import React from 'react';
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
-import { Navbar } from './navbar';
-import Footer from './footer';
+
 import { useSiteMetadata } from '../utils/useSiteMetadata';
+import { Navbar } from './navbar';
+import { Footer } from './footer';
+import { ScrollTop } from "./scrollTop"
+
 import "../styles/index.css"
-import ScrollTop from "./scrollTop"
 
 const Layout = ({ children }) => {
   const { title } = useSiteMetadata();
