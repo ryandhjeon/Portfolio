@@ -8,7 +8,6 @@ export default {
     shark: '#191B1F',
     woodSmoke: '#090A0B',
     background: '#191B1F',
-    cornField: '#F8F3C3',
     tan: '#D5A58B',
     schoolBus: '#FEDD00',
     linkedIn: '#0E76A8',
