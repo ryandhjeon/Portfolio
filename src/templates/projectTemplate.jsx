@@ -11,7 +11,6 @@ import { Helmet } from 'react-helmet';
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 import { useSiteMetadata } from '../utils/useSiteMetadata';
-import ScrollTop from "../components/ScrollTop"
 
 const ProjectTemplate = ({ data, pageContext }) => {
   const { author } = useSiteMetadata();
