@@ -30,27 +30,28 @@ export const ScrollTop = ({ showBelow }) => {
   return (
     <>
       {show &&
-      <CgArrowUpR
+      <span
         onClick={handleClick}
         aria-label="to top"
         sx={{
           zIndex: 999,
-          position: 'fixed',
-          fontSize: '6',
-          color: '#92A3AB',
-          bottom: '4',
-          right: '4',
-          cursor: 'pointer',
+          position: "fixed",
+          fontSize: "0",
+          bg: "lightGrey",
+          borderRadius: "10em",
+          p: 3,
+          bottom: "4",
+          right: "4",
+          cursor: "pointer",
+          opacity: "0.3",
+          textTransform: "uppercase",
           "&:hover": {
-            transition: 'all 500ms',
-            opacity: '1',
-            color: '#FEDD00',
-          }
-        }}>
-      </CgArrowUpR>
+            transition: "all 500ms",
+            opacity: "1",
+            bg: "schoolBus",
+          },
+        }}>top</span>
       }
     </>
   )
 }
-
-// export default ScrollTop

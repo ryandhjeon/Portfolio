@@ -9,11 +9,10 @@ import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Container from '../components/container';
 import { useSiteMetadata } from '../utils/useSiteMetadata';
-import { FaRegEnvelope } from "react-icons/fa"
+import { FaInbox, FaUserPlus } from "react-icons/fa"
 
 const IndexPage = () => {
   const { description, personalEmail, title, image, siteUrl, siteLanguage, siteLocale, twitter } = useSiteMetadata();
-  const mailToUrl = `mailto:${personalEmail}?Subject=Hello`;
 
   const data = useStaticQuery(graphql`
       {
@@ -119,9 +118,11 @@ const IndexPage = () => {
               lineHeight: "2",
               fontSize: "3",
               a: {
+                transition: 'all 500ms',
                 color: "woodSmoke",
                 "&:hover": {
                   bg: "schoolBus",
+                  borderRadius: '5em',
                 },
               },
               "@media screen and (max-width: 64em)": {
@@ -147,25 +148,35 @@ const IndexPage = () => {
 
             <p sx={{ mt: 4 }}>
               <a
-                href={mailToUrl}
+                href={"mailto:djeon@bgsu.edu"}
                 target="_top"
                 sx={{
-                  border: "1px solid black",
-                  p: 2,
+                  border: "1px solid rgb(254, 221, 0, 1)",
+                  borderRadius: '10em',
+                  // background: 'rgb(254, 221, 0, 0.2)',
+                  py: 2,
+                  px: 3,
                   mr: 3,
                   textDecoration: "none",
-                }}><FaRegEnvelope sx={{ fontSize: 1 }}/> djeon@bgsu.edu</a>
+                  fontSize: 1,
+                  fontWeight: 'lg',
+                }}><FaInbox sx={{ fontSize: 1, pr: 1}}/> djeon@bgsu.edu</a>
               {data.allFile.edges.map((file, index) => {
                 return (
                   <a
                     href={file.node.publicURL}
-                    download
+                    without rel="noopener noreferrer"
+                    target="_blank"
                     sx={{
-                      border: "1px solid black",
-                      p: 2,
+                      border: "1px solid rgb(254, 221, 0, 1)",
+                      borderRadius: '10em',
+                      py: 2,
+                      px: 3,
                       textDecoration: "none",
+                      fontSize: 1,
+                      fontWeight: 'lg',
                     }}>
-                    CV (PDF)
+                    <FaUserPlus sx={{ fontSize: 1, pr: 1}}/> CV
                   </a>
                 )
               })}

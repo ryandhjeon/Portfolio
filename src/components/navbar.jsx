@@ -34,14 +34,14 @@ const MenuLinks = () => {
       >
         <Link to={'/project'}>Projects</Link>
       </li>
-      <li
-        sx={{
-          mb: '0 !important',
-          ml: 3,
-        }}
-      >
-        <Link to={'/insight'}>Insights</Link>
-      </li>
+      {/*<li*/}
+      {/*  sx={{*/}
+      {/*    mb: '0 !important',*/}
+      {/*    ml: 3,*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  <Link to={'/insight'}>Insights</Link>*/}
+      {/*</li>*/}
     </ul>
   );
 };
@@ -72,14 +72,13 @@ export const Navbar = ({ siteTitle }) => {
           </Link>
           <MenuLinks />
           <button
-            // nav={nav}
             onClick={() => showNav(!nav)}
             sx={{
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-around',
               p: 0,
-              height: '1rem',
+              height: '1.2rem',
               background: 'transparent',
               border: 'none',
               cursor: 'pointer',
@@ -158,7 +157,7 @@ export const Navbar = ({ siteTitle }) => {
             >
               <li><Link to={'/'} nav={nav} onClick={() => showNav(!nav)}>Home</Link></li>
               <li><Link to={'/project'} nav={nav} onClick={() => showNav(!nav)}>Projects</Link></li>
-              <li><Link to={'/insight'} nav={nav} onClick={() => showNav(!nav)}>Insights</Link></li>
+              {/*<li><Link to={'/insight'} nav={nav} onClick={() => showNav(!nav)}>Insights</Link></li>*/}
               <Divider />
               <li><a href="https://www.github.com/ryandhjeon" target="_blank" rel="noreferrer" nav={nav} onClick={() => showNav(!nav)}>Github</a></li>
               <li><a href="https://www.linkedin.com/in/ryandhjeon" target="_blank" rel="noreferrer" nav={nav} onClick={() => showNav(!nav)}>LinkedIn</a></li>

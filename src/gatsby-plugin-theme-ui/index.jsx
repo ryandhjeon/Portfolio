@@ -2,6 +2,7 @@
 export default {
   colors: {
     gullGray: '#92A3AB',
+    mineShaft: '#393939',
     primaryText: 'rgba(255, 255, 255, 0.8)',
     pampas: '#F8F7F3',
     footerBg: '#1F1F1F',
@@ -16,6 +17,7 @@ export default {
     facebook: '#4267B2',
     bgsuOrange: '#FF7300',
     bgsuBrown: '#4f2c1d',
+
     navBackground: 'rgba(25, 27, 31, 0.9)',
   },
   breakpoints: [ '40em', '56em', '64em' ],

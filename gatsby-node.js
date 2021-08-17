@@ -11,7 +11,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       frontmatter: Frontmatter
       featuredImg: File @link(from: "featuredImg___NODE")
     }
-
     type Frontmatter {
       title: String!
       cover: String
@@ -132,6 +131,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               path
               title
               description
+              date(formatString: "YYYY")
             }
           }
           previous {
@@ -139,6 +139,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               path
               title
               description
+              date(formatString: "YYYY")
             }
           }
         }

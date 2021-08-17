@@ -7,6 +7,8 @@ const Wrapper = props =>
   <div
     {...props}
     sx={{
+      // mx: "auto",
+      // my: 6,
       '@media screen and (max-width: 64em)': {
         px: 3,
       }

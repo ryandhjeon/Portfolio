@@ -1,4 +1,7 @@
+/* eslint-disable */
+/** @jsx jsx */
 import React from 'react';
+import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 
@@ -8,7 +11,7 @@ const TagsTemplate = ({ pageContext, data }) => {
   const tagHeader = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${tag}"`;
   return (
     <div>
-      <h1>{tagHeader}</h1>
+      {/*<h1>{tagHeader}</h1>*/}
       <ul>
         {edges.map(({ node }) => {
           const { slug } = node.fields;
@@ -28,6 +31,7 @@ const TagsTemplate = ({ pageContext, data }) => {
     </div>
   );
 };
+
 TagsTemplate.propTypes = {
   pageContext: PropTypes.shape({
     tag: PropTypes.string.isRequired,
@@ -50,7 +54,9 @@ TagsTemplate.propTypes = {
     }),
   }),
 };
+
 export default TagsTemplate;
+
 export const pageQuery = graphql`
   query($tag: String) {
     allMdx(
