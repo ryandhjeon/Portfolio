@@ -60,7 +60,6 @@ const PostCards = () => {
                 my: "5",
                 bg: "pampas",
                 "@media screen and (min-width: 40em)": {
-                  // borderRadius: "0 20px 20px 0",
                   my: "4",
                 },
               }}
@@ -78,7 +77,6 @@ const PostCards = () => {
                   "&:hover": {
                     opacity: 1,
                     filter: "grayscale(10%)",
-
                   },
                   "@media screen and (max-width: 40em)": {
                     flexWrap: "wrap",
@@ -89,7 +87,7 @@ const PostCards = () => {
                     image={pathToImage}
                     alt={project.frontmatter.title}
                     sx={{
-                      maxHeight: "10rem",
+                      height: "12rem",
                       position: "relative",
                       overflow: "hidden",
                       display: "block",
