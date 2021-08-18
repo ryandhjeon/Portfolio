@@ -37,8 +37,8 @@ const ProjectTemplate = ({ data, pageContext }) => {
               mt: 3,
               mb: 5,
             }}/>
-            <Carousel carousel={carouselData}/>
             <MDXRenderer>{post.body}</MDXRenderer>
+            <Carousel carousel={carouselData}/>
           </MainContainer>
         </InsideWrapper>
         <FloorContainer>
@@ -60,7 +60,7 @@ const OutsideWrapper = ({ ...props }) => (
       mt: 7,
       "@media screen and (max-width: 40em)": {
         mt: 6,
-      },
+      }
     }}/>
 )
 
@@ -75,7 +75,7 @@ const TitleContainer = ({ ...props }) => (
     my: 7,
     "@media screen and (max-width: 40em)": {
       my: 6,
-    },
+    }
   }}/>
 )
 
@@ -88,7 +88,7 @@ const Title = ({title, ...props}) =>(
       mb: "4",
       "@media screen and (max-width: 56em)": {
         fontSize: "6",
-      },
+      }
     }}>
     {title}
   </div>

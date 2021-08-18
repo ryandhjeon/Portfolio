@@ -35,17 +35,16 @@ export const ScrollTop = ({ showBelow }) => {
         aria-label="to top"
         sx={{
           fill: "schoolBus",
+          background: "rgba(255, 255, 255, 0.1)",
           position: "fixed",
-          border: "5px solid schoolBus",
-          borderRadius: "5em",
+          borderRadius: "50%",
           p: 4,
-          bottom: 3,
-          right: 3,
+          bottom: 4,
+          right: 4,
           cursor: "pointer",
           transition: "all 500ms",
-          zIndex: 999,
           "&:hover": {
-            opacity: "1",
+            opacity: 1,
             fill: "shark",
             bg: "schoolBus",
           },

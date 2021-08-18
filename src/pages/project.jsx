@@ -1,35 +1,36 @@
 /* eslint-disable */
 /** @jsx jsx */
 import React from 'react';
-import { jsx, Box } from 'theme-ui';
+import { jsx, Box, Divider } from 'theme-ui';
 import { Link, graphql, useStaticQuery } from "gatsby"
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Wrapper from '../components/wrapper';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { FaEye } from "react-icons/fa"
 
-const Projects = () => {
-  return (
-    <Layout>
-      {/*<SEO title="Project"/>*/}
-      <Wrapper>
-        <Quote/>
-        <PostCard/>
-      </Wrapper>
-    </Layout>
-  )
-}
+const Projects = () => (
+  <Layout>
+    {/*<SEO title="Project"/>*/}
+    <Wrapper
+    sx={{
+      mx: "auto",
+      maxWidth: "56em",
+    }}>
+      <Quote/>
+      <PostCards/>
+    </Wrapper>
+  </Layout>
+)
 
 const Quote = () => (
   <div
     sx={{
-      mx: "auto",
       my: "10em",
       textAlign: "center",
       fontSize: "3",
       fontWeight: "sm",
-      maxWidth: "40em",
     }}>
     <p
       sx={{
@@ -43,7 +44,7 @@ const Quote = () => (
   </div>
 )
 
-const PostCard = () => {
+const PostCards = () => {
   const data = useStaticQuery(ALL_PROJECTS_QUERY);
   const allProjects = data.allMdx.edges;
 
@@ -59,7 +60,7 @@ const PostCard = () => {
                 my: "5",
                 bg: "pampas",
                 "@media screen and (min-width: 40em)": {
-                  borderRadius: "0 20px 20px 0",
+                  // borderRadius: "0 20px 20px 0",
                   my: "4",
                 },
               }}
@@ -73,8 +74,11 @@ const PostCard = () => {
                   fontSize: "1",
                   opacity: 0.9,
                   transition: "all 700ms",
+                  filter: "grayscale(100%)",
                   "&:hover": {
                     opacity: 1,
+                    filter: "grayscale(10%)",
+
                   },
                   "@media screen and (max-width: 40em)": {
                     flexWrap: "wrap",
@@ -85,7 +89,13 @@ const PostCard = () => {
                     image={pathToImage}
                     alt={project.frontmatter.title}
                     sx={{
+                      maxHeight: "10rem",
+                      position: "relative",
+                      overflow: "hidden",
+                      display: "block",
                       width: "100%",
+                      bottom: "0",
+                      transition: "all 700ms",
                       "@media screen and (min-width: 40em)": {
                         flex: "0 0 12rem",
                       },
@@ -106,10 +116,23 @@ const PostCard = () => {
                     fontWeight: "lg",
                     mb: "2",
                     textTransform: "Uppercase",
-                  }}>{project.frontmatter.title}</div>
+                  }}>{project.frontmatter.title}
+                  </div>
                   <div
-                    sx={{ fontWeight: "md", mb: "2" }}>{project.frontmatter.date} · {project.frontmatter.author}</div>
-                  <div sx={{ fontWeight: "md" }}>{project.frontmatter.description}</div>
+                    sx={{
+                      fontWeight: "md",
+                      mb: "2",
+                    }}>{project.frontmatter.date} · {project.frontmatter.author}
+                  </div>
+                  <Divider
+                    sx={{
+                      color: "schoolBus",
+                      borderBottom: "2px solid",
+                      opacity: "0.5",
+                    }}/>
+                  <div sx={{ fontWeight: "md" }}>
+                    {project.frontmatter.description}
+                  </div>
                 </div>
               </Link>
             </Box>
@@ -146,7 +169,6 @@ export const ALL_PROJECTS_QUERY = graphql`
                                 gatsbyImageData(
                                     layout: FULL_WIDTH,
                                     placeholder: BLURRED,
-                                    transformOptions: {grayscale: true},
                                     quality: 50
                                 )
                             }
@@ -155,6 +177,5 @@ export const ALL_PROJECTS_QUERY = graphql`
                 }
             }
         }
-
     }
 `

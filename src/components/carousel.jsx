@@ -15,6 +15,8 @@ SwiperCore.use([Navigation, Pagination, Lazy, Mousewheel, Zoom, Thumbs ]);
 
 const Carousel = ({ carousel }) => {
   const data = {carousel}
+  const first = data.carousel.edges.slice(0,3)
+  console.log(first)
 
   return (
     <React.Fragment>
@@ -24,13 +26,13 @@ const Carousel = ({ carousel }) => {
         pagination
         grabCursor
         sx={{
-          zIndex: "0",
+          zIndex: 0,
           mb: 5,
         }}
       >
-        {data.carousel.edges.map(({ node }) => (
+        {first.map(({ node }) => (
           <SwiperSlide key={node.id}>
-            <GatsbyImage image={node.childImageSharp.gatsbyImageData} alt={node.base}/>
+            <GatsbyImage image={getImage(node.childImageSharp.gatsbyImageData)} alt={node.base}/>
           </SwiperSlide>
         ))}
       </Swiper>

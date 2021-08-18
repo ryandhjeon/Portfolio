@@ -56,7 +56,9 @@ export const Navbar = ({ siteTitle }) => {
 
   return (
     <Headroom>
-      <div sx={{ bg: 'navBackground'}}>
+      <div sx={{
+        bg: 'navBackground',
+        zIndex: 999,}}>
         <header sx={{ variant: 'layout.header' }}>
           <Link
             to="/"
@@ -72,7 +74,7 @@ export const Navbar = ({ siteTitle }) => {
           </Link>
           <MenuLinks />
           <button
-            onClick={() => showNav(!nav)}
+            onClick={() => showNav(!nav ? 1 : 0)}
             sx={{
               display: 'flex',
               flexDirection: 'column',
@@ -121,15 +123,11 @@ export const Navbar = ({ siteTitle }) => {
               left: 0,
               height: '100vh',
               width: '100%',
-
               bg: 'background',
-
               display: 'flex',
               flexDirection: 'column',
-              // justifyContent: 'center',
               alignItems: 'center',
               textAlign: 'center',
-
               transition: 'transform 400ms',
               transform: $nav => nav ? "translateY(0)" : "translateY(-100%)"
             }}
