@@ -1,23 +1,24 @@
 /* eslint-disable */
 /** @jsx jsx */
-import React from 'react';
-import { jsx, Divider } from 'theme-ui';
+import React from 'react'
+import { jsx, Divider } from 'theme-ui'
 
 import { graphql, Link } from "gatsby"
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { Helmet } from 'react-helmet';
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { Helmet } from 'react-helmet'
 
-import Layout from '../components/layout';
-import Wrapper from '../components/wrapper';
+import Layout from '../components/layout'
+import Wrapper from '../components/wrapper'
 import Carousel from "../components/carousel"
-import { AiFillProject } from "react-icons/ai"
+import TechSwiper from "../components/tech"
 
-import { useSiteMetadata } from '../utils/useSiteMetadata';
+import { useSiteMetadata } from '../utils/useSiteMetadata'
 
 const ProjectTemplate = ({ data, pageContext }) => {
   const { author } = useSiteMetadata();
-  const { mdx: post } = data;
   const { previous, next } = pageContext;
+  const post = data.project;
+  const carouselData = data.carousel;
 
   return (
     <Layout>
@@ -30,13 +31,13 @@ const ProjectTemplate = ({ data, pageContext }) => {
         </TitleContainer>
         <InsideWrapper>
           <MainContainer>
-            <Tech techs={post.frontmatter.tags}/>
+            <TechSwiper tech={post.frontmatter.tags}/>
             <Divider sx={{
               color: "lightGrey",
               mt: 3,
               mb: 5,
             }}/>
-            <Carousel imagePath={post.frontmatter.images}/>
+            <Carousel carousel={carouselData}/>
             <MDXRenderer>{post.body}</MDXRenderer>
           </MainContainer>
         </InsideWrapper>
@@ -154,47 +155,6 @@ const MainContainer = ({...props}) => (
       mx: "auto"
     }}
   />
-)
-
-const Tech = ({techs, ...props}) => (
-  <div
-    {...props}
-  >
-    {techs ? (
-      <div>
-        <p
-          sx={{
-            fontSize: 0,
-          }}>TECH</p>
-        {/*<Swiper*/}
-        {/*  spaceBetween={10}*/}
-        {/*  slidesPerView={4}*/}
-        {/*  lazy*/}
-        {/*  sx={{ cursor: "grab", zIndex: "0",}}*/}
-        {/*>*/}
-        {/*  {post.frontmatter.tags.map(tag => (*/}
-        {/*    <SwiperSlide>*/}
-        {/*      <div*/}
-        {/*        sx={{*/}
-        {/*          border: "1px solid lightGrey",*/}
-        {/*          borderRadius: "10px",*/}
-        {/*          textAlign: "center",*/}
-        {/*          px: 3,*/}
-        {/*          py: 3,*/}
-        {/*          fontSize: 1,*/}
-        {/*          "@media screen and (max-width: 40em)": {*/}
-        {/*            fontSize: 0,*/}
-        {/*            px: 1,*/}
-        {/*          },*/}
-        {/*        }}>*/}
-        {/*        {tag}*/}
-        {/*      </div>*/}
-        {/*    </SwiperSlide>*/}
-        {/*  ))}*/}
-        {/*</Swiper>*/}
-      </div>
-    ) : null}
-  </div>
 )
 
 const FloorContainer = ({...props}) => (
@@ -320,8 +280,11 @@ const MoreProjects = ({ ...props }) => (
 )
 
 export const PROJECT_QUERY = graphql`
-    query($path: String!) {
-        mdx(frontmatter: { path: { eq: $path } }) {
+    query (
+        $path: String!,
+        $imagePath: String,
+    ) {
+        project: mdx(frontmatter: { path: { eq: $path } }) {
             body
             timeToRead
             frontmatter {
@@ -331,7 +294,7 @@ export const PROJECT_QUERY = graphql`
                 description
                 date(formatString: "YYYY")
                 tags
-                images
+                imagePath
                 cover {
                     childImageSharp {
                         gatsbyImageData(
@@ -344,8 +307,28 @@ export const PROJECT_QUERY = graphql`
                 }
             }
         }
+        carousel: allFile(
+            filter: {
+                extension: { regex: "/(jpg)|(png)|(jpeg)/" }
+                relativeDirectory: {eq: $imagePath}
+            }
+            sort: {fields: base, order: ASC}
+        ) {
+            edges {
+                node {
+                    id
+                    base
+                    childImageSharp {
+                        gatsbyImageData(placeholder: BLURRED)
+                    }
+                }
+            }
+        }
     }
 `
+
+
+
 
 export default ProjectTemplate;
 

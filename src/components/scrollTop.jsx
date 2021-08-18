@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import React, { useState, useEffect }  from 'react';
 import { jsx } from 'theme-ui';
-import { CgArrowUpR } from "react-icons/cg"
+import { BsChevronUp } from "react-icons/bs"
 
 export const ScrollTop = ({ showBelow }) => {
 
@@ -30,27 +30,27 @@ export const ScrollTop = ({ showBelow }) => {
   return (
     <>
       {show &&
-      <span
+      <BsChevronUp
         onClick={handleClick}
         aria-label="to top"
         sx={{
-          zIndex: 999,
+          fill: "schoolBus",
           position: "fixed",
-          fontSize: "0",
-          bg: "lightGrey",
-          borderRadius: "10em",
-          p: 3,
-          bottom: "4",
-          right: "4",
+          border: "5px solid schoolBus",
+          borderRadius: "5em",
+          p: 4,
+          bottom: 3,
+          right: 3,
           cursor: "pointer",
-          opacity: "0.3",
-          textTransform: "uppercase",
+          transition: "all 500ms",
+          zIndex: 999,
           "&:hover": {
-            transition: "all 500ms",
             opacity: "1",
+            fill: "shark",
             bg: "schoolBus",
           },
-        }}>top</span>
+        }}
+      />
       }
     </>
   )

@@ -49,7 +49,7 @@ exports.onCreateNode = async ({
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   if (node.internal.type === `Mdx`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages/insight` });
+    const slug = createFilePath({ node, getNode});
     createNodeField({
       node,
       name: `slug`,
@@ -122,6 +122,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             frontmatter {
               title
               path
+              imagePath
               date(formatString: "MM DD, YYYY")
               tags
             }
@@ -174,6 +175,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: projectTemplate,
       context: {
         slug: node.fields.slug,
+        imagePath: node.frontmatter.imagePath,
         next,
         previous,
       },
