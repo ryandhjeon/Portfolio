@@ -6,3 +6,19 @@ body {
     padding: 0;
     font-family: 'Raleway', 'Roboto Condensed', 'IBM Plex Sans Condensed', 'sans-serif'
 }
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    color: #FEDD00;
+    opacity: 0.3;
+}
+
+.swiper-button-disabled::after {
+    display: none;
+}
+
+
+
+.swiper-pagination-bullet-active {
+    background: #FEDD00 !important;
+}

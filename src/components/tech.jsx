@@ -4,12 +4,12 @@ import React from 'react';
 import { jsx } from 'theme-ui';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Lazy, Mousewheel, Zoom, Thumbs } from 'swiper/core';
+import SwiperCore, { Navigation, Pagination, Lazy, Mousewheel, Zoom, Thumbs, Virtual } from 'swiper/core';
 
 import 'swiper/swiper.scss';
 import 'swiper/swiper-bundle.css'
 
-SwiperCore.use([Navigation, Pagination, Lazy, Mousewheel, Zoom, Thumbs ]);
+SwiperCore.use([Navigation, Pagination, Lazy, Mousewheel, Zoom, Thumbs, Virtual ]);
 
 const TechSwiper = ({tech, post, ...props}) => {
   return (
