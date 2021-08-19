@@ -1,5 +1,5 @@
-const Globals = {
-  blogURI: 'blog'
-}
-
-module.exports = Globals
+// const Globals = {
+//   blogURI: 'blog'
+// }
+//
+// module.exports = Globals

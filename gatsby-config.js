@@ -24,6 +24,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -85,6 +86,5 @@ module.exports = {
         path: `${__dirname}/src/projects`,
       },
     },
-    `gatsby-transformer-remark`,
   ],
 };

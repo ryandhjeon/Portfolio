@@ -8,7 +8,7 @@ const Wrapper = props =>
     {...props}
     sx={{
       // mx: "auto",
-      // my: 6,
+      py: 5,
       '@media screen and (max-width: 64em)': {
         px: 3,
       }

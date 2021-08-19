@@ -9,7 +9,7 @@ import { Navbar } from './navbar';
 import { Footer } from './footer';
 import { ScrollTop } from "./scrollTop"
 
-import "../styles/index.css"
+import "../styles/index.scss"
 
 const Layout = ({ children }) => {
   const { title } = useSiteMetadata();

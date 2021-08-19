@@ -5,7 +5,6 @@ export default {
     mineShaft: '#393939',
     primaryText: 'rgba(255, 255, 255, 0.8)',
     pampas: '#F8F7F3',
-    footerBg: '#1F1F1F',
     shark: '#191B1F',
     woodSmoke: '#090A0B',
     background: '#191B1F',
@@ -17,8 +16,7 @@ export default {
     facebook: '#4267B2',
     bgsuOrange: '#FF7300',
     bgsuBrown: '#4f2c1d',
-
-    navBackground: 'rgba(25, 27, 31, 0.9)',
+    navBackground: "rgba(25, 27, 31, 0.9)",
   },
   breakpoints: [ '40em', '56em', '64em' ],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
@@ -44,7 +42,7 @@ export default {
       mt: 3,
     },
     'h2': {
-      mt: 6,
+      mt: 5,
     },
     'h3': {
       mt: 5,
@@ -80,19 +78,17 @@ export default {
       color: 'pampas',
     },
     footer: {
-      fontSize: '1',
+      fontSize: 1,
       fontWeight: 'sm',
       color: 'gullGray',
       bg: 'woodSmoke',
+      px: ['default', '7%'],
       'a': {
         textDecoration: 'none',
         color: 'gullGray',
-      },
-      'a:hover': {
-        color: 'schoolBus',
-      },
-      '@media screen and (max-width: 64em)': {
-        px: '7%',
+        '&:hover' : {
+          color: 'schoolBus',
+        }
       },
     },
   },

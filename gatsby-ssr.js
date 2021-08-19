@@ -1,5 +1,5 @@
 import { wrapRootElement as wrap } from "./root-wrapper"
-import "./src/styles/index.css"
+import "./src/styles/index.scss"
 import "@fontsource/raleway/100.css"
 import "@fontsource/raleway/200.css"
 import "@fontsource/raleway/400.css"

@@ -130,10 +130,10 @@ const IntroRight = ({ data, ...props }) => (
   <div
     {...props}
     sx={{
-      width: "50%",
+      width: ["100%", "80%", "50%"],
       textAlign: "left",
       lineHeight: "2",
-      fontSize: "3",
+      fontSize: ["2", "3", "3"],
       a: {
         transition: "all 500ms",
         color: "woodSmoke",
@@ -142,15 +142,7 @@ const IntroRight = ({ data, ...props }) => (
           borderRadius: "5em",
         },
       },
-      "@media screen and (max-width: 64em)": {
-        mt: 4,
-        width: "80%",
-      },
-      "@media screen and (max-width: 40em)": {
-        mt: 4,
-        width: "100%",
-        fontSize: "2",
-      },
+      mt: 4,
     }}
   >
     <h4>Welcome!</h4> I am a Ph.D. student in Data Science at <a
@@ -168,7 +160,7 @@ const IntroRight = ({ data, ...props }) => (
         href={"mailto:djeon@bgsu.edu"}
         target="_top"
         sx={{ mr: 2 }}
-        >
+      >
         <FaInbox sx={{ fontSize: 1, pr: 1 }}/>
         djeon@bgsu.edu
       </LinkButton>

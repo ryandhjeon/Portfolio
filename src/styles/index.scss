@@ -9,15 +9,22 @@ body {
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-    color: #FEDD00;
-    opacity: 0.3;
+  color: #FEDD00;
+  opacity: 0.2;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover,
+{
+  &::after {
+    transition: all 500ms;
+    opacity: 1;
+  }
 }
 
 .swiper-button-disabled::after {
     display: none;
 }
-
-
 
 .swiper-pagination-bullet-active {
     background: #FEDD00 !important;
