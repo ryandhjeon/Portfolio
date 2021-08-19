@@ -29,7 +29,7 @@ const Template = ({ data, pageContext }) => {
           mt: 6,
         }}
       >
-        <Helmet title={`Insight: ${post.frontmatter.title}`}/>
+        <Helmet title={`${post.frontmatter.title}`}/>
         <div
           sx={{
             textAlign: "center",
@@ -293,7 +293,7 @@ const Template = ({ data, pageContext }) => {
             )}
           </div>
           <Link
-            to={"/insight"}
+            to={"/ai"}
             sx={{
               bg: "background",
               py: "3",
@@ -314,7 +314,7 @@ const Template = ({ data, pageContext }) => {
                 color: "schoolBus",
                 opacity: "0.8",
                 fontWeight: "sm",
-              }}>More insights</span>
+              }}>More isn't enough</span>
           </Link>
         </div>
       </div>

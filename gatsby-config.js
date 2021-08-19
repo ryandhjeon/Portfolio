@@ -4,6 +4,7 @@ const siteMetadata = {
   title: `Maison De Ryan`,
   description: `Ryan's portfolio`,
   author: `Ryan Jeon`,
+  aboutAuthor: 'Ph.D student in Data Science at Bowling Green State University. He is interested in implementing Machine learning models in business analytics and cyber-security to create safer business transaction environment. He likes to play tennis, cook, and go camping.',
   schoolEmail: `djeon@bgsu.edu`,
   personalEmail: `ryandhjeon@gmail.com`,
   siteUrl: `https://www.ryanjeon.com`,
@@ -75,7 +76,7 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "insight",
+        name: "ai",
         path: `${__dirname}/src/posts`,
       },
     },

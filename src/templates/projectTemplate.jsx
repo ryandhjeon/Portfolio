@@ -11,6 +11,7 @@ import Layout from '../components/layout'
 import Wrapper from '../components/wrapper'
 import Carousel from "../components/carousel"
 import TechSwiper from "../components/tech"
+import WrittenBy from "../components/writtenBy"
 
 import { useSiteMetadata } from '../utils/useSiteMetadata'
 
@@ -39,6 +40,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
             }}/>
             <MDXRenderer>{post.body}</MDXRenderer>
             <Carousel carousel={carouselData}/>
+            <WrittenBy/>
           </MainContainer>
         </InsideWrapper>
         <FloorContainer>

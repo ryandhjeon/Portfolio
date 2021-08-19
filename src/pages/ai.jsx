@@ -15,7 +15,7 @@ const query = graphql`
   {
     allMdx(
       sort: {order: DESC, fields: [frontmatter___date]}
-      filter: {frontmatter: {published: {eq: true}, insight: {eq: true}}}
+      filter: {frontmatter: {published: {eq: true}, ai: {eq: true}}}
     ) {
       group(field: frontmatter___tags) {
         fieldValue
@@ -48,7 +48,7 @@ const query = graphql`
   }
 `
 
-const Insight = () => {
+const Ai = () => {
   const { author, description, image, siteUrl, siteLanguage, siteLocale, title, twitter } = useSiteMetadata();
   const data = useStaticQuery(query);
   const allPosts = data.allMdx.edges;
@@ -158,7 +158,7 @@ const Insight = () => {
       }}
     >
       <SEO
-        title="Insight"
+        title="AI"
         description={description || `nothin’`}
         image={`${siteUrl}${image}`}
         pathName={siteUrl}
@@ -175,8 +175,8 @@ const Insight = () => {
             fontWeight: 'sm'
           }}
         >
-          <h1 sx={{ fontWeight: 'md'}}>Insights</h1>
-          <p>Personal insights on the data science, programming, business strategy and branding</p>
+          <h1 sx={{ fontWeight: 'md'}}>A.I.</h1>
+          <p>Reviews on AI research papers. Code implementations.</p>
         </div>
         <PostCard />
       </Wrapper>
@@ -184,4 +184,4 @@ const Insight = () => {
   );
 };
 
-export default Insight;
+export default Ai;

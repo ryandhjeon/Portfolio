@@ -100,7 +100,6 @@ const ImageLeft = ({...props}) => (
   <div
     {...props}
     sx={{
-      // overflow: "hidden",
       maxWidth: "20rem",
       maxHeight: "20rem",
       borderRadius: "50%",
