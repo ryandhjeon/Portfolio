@@ -29,6 +29,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
+
         name: `Maison de Ryan`,
         short_name: `Ryan Jeon`,
         start_url: `/`,
@@ -76,7 +77,7 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "ai",
+        name: "blog",
         path: `${__dirname}/src/posts`,
       },
     },

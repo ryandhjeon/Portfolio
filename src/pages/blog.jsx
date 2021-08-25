@@ -15,7 +15,7 @@ const query = graphql`
   {
     allMdx(
       sort: {order: DESC, fields: [frontmatter___date]}
-      filter: {frontmatter: {published: {eq: true}, ai: {eq: true}}}
+      filter: {frontmatter: {published: {eq: true}, blog: {eq: true}}}
     ) {
       group(field: frontmatter___tags) {
         fieldValue
@@ -48,7 +48,7 @@ const query = graphql`
   }
 `
 
-const Ai = () => {
+const Blog = () => {
   const { author, description, image, siteUrl, siteLanguage, siteLocale, title, twitter } = useSiteMetadata();
   const data = useStaticQuery(query);
   const allPosts = data.allMdx.edges;
@@ -158,7 +158,7 @@ const Ai = () => {
       }}
     >
       <SEO
-        title="AI"
+        title="Blog"
         description={description || `nothin’`}
         image={`${siteUrl}${image}`}
         pathName={siteUrl}
@@ -184,4 +184,4 @@ const Ai = () => {
   );
 };
 
-export default Ai;
+export default Blog;

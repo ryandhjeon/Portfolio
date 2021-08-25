@@ -293,7 +293,7 @@ const Template = ({ data, pageContext }) => {
             )}
           </div>
           <Link
-            to={"/ai"}
+            to={"/blog"}
             sx={{
               bg: "background",
               py: "3",

@@ -90,7 +90,7 @@ const ContainerTwoInner = ({...props}) => (
       justifyContent: "space-between",
       alignItems: "center",
       maxWidth: "1040px",
-      "@media screen and (max-width: 64em)": {
+      "@media screen and (max-width: 56em)": {
         justifyContent: "center",
       },
   }}/>

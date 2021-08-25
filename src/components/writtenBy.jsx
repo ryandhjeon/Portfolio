@@ -16,12 +16,13 @@ const WrittenBy = () => {
       <Divider sx={{ borderBottom: "1px solid lightgrey" }}/>
       <div sx={{
         display: "flex",
+        flexWrap: "wrap",
         alignItems: "center",
         pt: 4,
       }}>
         <div
           sx={{
-            flex: "0 12em",
+            // flex: [1, "0 12em"],
             textAlign: "center",
             px: [3, 4, 4],
           }}>
@@ -40,6 +41,7 @@ const WrittenBy = () => {
         </div>
         <div
           sx={{
+            // flex: 1,
             color: "grey",
           }}>
           <span sx={{

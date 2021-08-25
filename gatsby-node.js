@@ -74,7 +74,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }
       postsRemark: allMdx(
         sort: { order: DESC, fields: [frontmatter___date] }
-        filter: {frontmatter: {ai: {eq: true}}}
+        filter: {frontmatter: {blog: {eq: true}}}
       ) {
         totalCount
         edges {
