@@ -78,7 +78,7 @@ export default {
       color: 'pampas',
     },
     footer: {
-      fontSize: 1,
+      fontSize: 2,
       fontWeight: 'sm',
       color: 'gullGray',
       bg: 'woodSmoke',

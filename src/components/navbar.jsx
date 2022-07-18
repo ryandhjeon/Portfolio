@@ -34,14 +34,14 @@ const MenuLinks = () => {
       >
         <Link to={'/project'}>Projects</Link>
       </li>
-      <li
-        sx={{
-          mb: '0 !important',
-          ml: 3,
-        }}
-      >
-        <Link to={'/blog'}>Blog</Link>
-      </li>
+      {/*<li*/}
+      {/*  sx={{*/}
+      {/*    mb: '0 !important',*/}
+      {/*    ml: 3,*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  <Link to={'/blog'}>Blog</Link>*/}
+      {/*</li>*/}
     </ul>
   );
 };
@@ -155,7 +155,7 @@ export const Navbar = ({ siteTitle }) => {
             >
               <li><Link to={'/'} nav={nav} onClick={() => showNav(!nav)}>Home</Link></li>
               <li><Link to={'/project'} nav={nav} onClick={() => showNav(!nav)}>Projects</Link></li>
-              <li><Link to={'/blog'} nav={nav} onClick={() => showNav(!nav)}>Blog</Link></li>
+              {/*<li><Link to={'/blog'} nav={nav} onClick={() => showNav(!nav)}>Blog</Link></li>*/}
               <Divider />
               <li><a href="https://www.github.com/ryandhjeon" target="_blank" rel="noreferrer" nav={nav} onClick={() => showNav(!nav)}>Github</a></li>
               <li><a href="https://www.linkedin.com/in/ryandhjeon" target="_blank" rel="noreferrer" nav={nav} onClick={() => showNav(!nav)}>LinkedIn</a></li>

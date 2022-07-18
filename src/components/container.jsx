@@ -11,10 +11,11 @@ const Container = props =>
       alignContent: 'center',
       justifyContent: 'center',
       flexWrap: 'wrap',
-      height: '650px',
-      py: '5rem',
+      minHeight: '60vh',
+      maxHeight: '1000px',
+      pt: '3rem',
       '@media screen and (max-width: 64em)': {
-        px: '7%',
+        px: '5%',
       },
     }}
   />
