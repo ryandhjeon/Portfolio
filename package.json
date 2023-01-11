@@ -29,7 +29,7 @@
     "gatsby-plugin-typography": "^3.10.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^3.10.0",
-    "gatsby-transformer-remark": "^4.7.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^3.10.0",
     "graphql": "^15.5.1",
     "lodash": "^4.17.21",
