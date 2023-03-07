@@ -34,14 +34,14 @@ const MenuLinks = () => {
       >
         <Link to={'/project'}>Projects</Link>
       </li>
-      {/*<li*/}
-      {/*  sx={{*/}
-      {/*    mb: '0 !important',*/}
-      {/*    ml: 3,*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*  <Link to={'/blog'}>Blog</Link>*/}
-      {/*</li>*/}
+      <li
+        sx={{
+            mb: '0 !important',
+            ml: 3,
+      }}
+      >
+      <Link to={'/blog'}>Blog</Link>
+      </li>
     </ul>
   );
 };
